@@ -4,12 +4,9 @@ title: API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://api.chiligumvideos.com/'>Sign Up for a Developer Key</a>
 
 includes:
   - errors
@@ -17,63 +14,90 @@ includes:
 search: true
 ---
 
-# Introduction
+# Introdução
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Bem-vindo a API da Chiligum! Você pode usar nossa API para gerar vídeos customizados em massa.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Temos exemplos em Shell e Ruby. Você pode usar qualquer linguagem que tenha suporte a HTTP.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Nossa API é composta por **templates**, **tracks**, **assets**, **fonts** e **vídeos**. Sendo eles:
 
-# Authentication
+**Templates** armazena o aepx gerado pelo AfterEffects, assets estáticos, fonts e configurações do template
 
-> To authorize, use this code:
+
+**Tracks** música do vídeo em mp3. Sendo opcional caso o vídeo não tenha uma faixa de áudio.
+
+
+**Assets** responsável por armazernar todos vídeos e imagens que são usados no template como assets estáticos e nos vídeos como um logo ou foto enviada por um usuário.
+
+
+**Fonts** caso o template tenha alguma font customizada você deve fazer o upload delas neste end-point e informar o link 
+dentro do end point de templates.
+
+
+**Vídeos** recebe as informações enviadas a patir de tracks, templates e assets.
+
+
+<img src='images/introduction.png' class='introduction'>
+
+# Autentificação
+
+> Para autentificar passe o token no header em cada request:
 
 ```ruby
-require 'kittn'
+require 'httparty'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+request = HTTParty.get("https://api.chiligumvideos.com", headers: headers)
+request.body
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl "https://api.chiligumvideos.com/"
+  -H "token: seutoken"
 ```
 
-```javascript
-const kittn = require('kittn');
+> Tenha certeza que você mudou `seutoken` com seu token da API.
 
-let api = kittn.authorize('meowmeowmeow');
-```
+Para ter acesso a nossa API você deve criar uma conta em [nosso sistema](http://api.chiligumvideos.com/credentials).
 
-> Make sure to replace `meowmeowmeow` with your API key.
+Após criar a conta você deve entrar em contato conosco para mudarmos o status da conta para enabled.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Em nosso sistema no meu "Credentials" você pode pegar o token de acesso. Ele deve ser passado a cada requisição através dos headers:
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+`token: seutoken`
 
-`Authorization: meowmeowmeow`
+Também passe o content type nos headers para:
+
+`Content-Type: multipart/form-data`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Você deve substituir <code>seutoken</code> para o token da sua conta.
 </aside>
 
-# Kittens
+# Assets
 
-## Get All Kittens
+## Overview
+
+Todos os assets (imagens e vídeos) utilizados dentro do template ou como input de vídeos devem ser feitos o upload através deste end-point. No momento não suportamos assets de sites ou sistemas de terceiros.
+
+## Get All Assets
 
 ```ruby
-require 'kittn'
+require 'httparty'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+tracks = HTTParty.get("https://api.chiligumvideos.com/api/tracks", headers: headers)
+tracks.body
 ```
 
 ```python
@@ -88,12 +112,6 @@ curl "http://example.com/api/kittens"
   -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
