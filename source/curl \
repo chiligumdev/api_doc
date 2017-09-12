@@ -1,8 +1,0 @@
-curl \
-	"http://dev.com:3000/api/assets" \
-	-H "token: 780f5faeaa258a54c2024e71" \
-  -F "[asset]name=logo" \
-  -F "[asset]attachment=@/Users/henriquebreim/Desktop/logo.png"
-
-
-  curl "http://dev.com:3000/api/assets" -H "token: 780f5faeaa258a54c2024e71"   -F "[asset]name=logo"   -F "[asset]attachment=@/Users/henriktop/logo.png"
