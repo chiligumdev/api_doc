@@ -86,7 +86,7 @@ Você deve substituir <code>seutoken</code> para o token da sua conta.
 
 Todos os assets (imagens e vídeos) utilizados dentro do template ou como input de vídeos devem ser feitos o upload através deste end-point. No momento não suportamos assets de sites ou sistemas de terceiros.
 
-## Get All Assets
+## Receber todos Assets
 
 ```ruby
 require 'httparty'
@@ -96,162 +96,194 @@ headers = {
   'Content-Type' => 'multipart/form-data'
 }
 
-tracks = HTTParty.get("https://api.chiligumvideos.com/api/tracks", headers: headers)
-tracks.body
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+assets = HTTParty.get("https://api.chiligumvideos.com/api/assets", headers: headers)
+assets.body
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "https://api.chiligumvideos.com/api/assets"
+  -H "token: seutoken"
 ```
 
-
-> The above command returns JSON structured like this:
+> O comando acima retorna um JSON:
 
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "id":1,
+    "name":"Abertura_PreRender.mp4",
+    "url":"https://s3.amazonaws.com/teaserapi/assets/b4c067a22d9a272493340c654bd4f2b7802d06e3.mp4",
+    "hash_name":"b4c067a22d9a272493340c654bd4f2b7802d06e3.mp4",
+    "attachment_file_name":"Abertura_PreRender.mp4",
+    "attachment_content_type":"application/octet-stream",
+    "attachment_file_size":"728537",
+    "created_at":"2017-08-23T21:30:26.713Z",
+    "updated_at":"2017-08-23T21:30:26.713Z"
   },
   {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "id":2,
+    "name":"logo",
+    "url":"https://s3.amazonaws.com/teaserapi/assets/55780e178d171747c0cb81597262f3c7abbae9b8.png",
+    "hash_name":"55780e178d171747c0cb81597262f3c7abbae9b8.png",
+    "attachment_file_name":"foto.png",
+    "attachment_content_type":"application/octet-stream",
+    "attachment_file_size":"32013",
+    "created_at":"2017-08-23T21:30:25.398Z",
+    "updated_at":"2017-08-23T21:30:25.398Z"
   }
 ]
+
 ```
 
-This endpoint retrieves all kittens.
+Este endpoint retorna todas os assets.
+
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://api.chiligumvideos.com/api/assets`
 
-### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+Não esqueça de informar o token no header
 </aside>
 
-## Get a Specific Kitten
+## Receber um Asset específico
 
 ```ruby
-require 'kittn'
+require 'httparty'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
+asset = HTTParty.get("https://api.chiligumvideos.com/api/assets/<ID>", headers: headers)
+asset.body
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "https://api.chiligumvideos.com/api/assets/<ID>"
+  -H "token: seutoken"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> O comando acima deve retornar uma estrutura de JSON:
 
 ```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
+  {
+    "id":1,
+    "name":"Abertura_PreRender.mp4",
+    "url":"https://s3.amazonaws.com/teaserapi/assets/b4c067a22d9a272493340c654bd4f2b7802d06e3.mp4",
+    "hash_name":"b4c067a22d9a272493340c654bd4f2b7802d06e3.mp4",
+    "attachment_file_name":"Abertura_PreRender.mp4",
+    "attachment_content_type":"application/octet-stream",
+    "attachment_file_size":"728537",
+    "created_at":"2017-08-23T21:30:26.713Z",
+    "updated_at":"2017-08-23T21:30:26.713Z"
+  }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+Este endpoint retorna um asset através de seu ID.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://api.chiligumvideos.com/api/assets/<ID>`
 
 ### URL Parameters
 
-Parameter | Description
+Parâmetro | Descrição
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | ID do asset que deseja retornar
 
-## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
+## Criar um Asset
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
+```shell
+curl "https://api.chiligumvideos.com/api/assets" \
+-H "token: seutoken" \   
+-F "[asset]name=logo" \
+-F "[asset]attachment=@/Users/Desktop/logo.png"
 ```
 
-```python
-import kittn
+```ruby
+require 'httparty'
+require 'httmultiparty'
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+asset = HTTMultiParty.post('https://api.chiligumvideos.com/api/assets', :query => {
+  asset: { 
+   name: 'logo',
+   attachment: File.new('/Users/Desktop/logo.png')
+  }}, headers: headers)
+asset.body
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+  {
+    "id":3,
+    "name":"logo",
+    "url":"https://s3.amazonaws.com/teaserapi/assets/c8efe50d7b34615ce997a732fdf0da06954bd962.png",
+    "hash_name":"c8efe50d7b34615ce997a732fdf0da06954bd962.png",
+    "attachment_file_name":"logo.png",
+    "attachment_content_type":"application/octet-stream",
+    "attachment_file_size":"32013",
+    "created_at":"2017-09-12T03:47:08.078Z",
+    "updated_at":"2017-09-12T03:47:08.078Z"
+  }
+```
+
+### HTTP Request
+
+`POST https://api.chiligumvideos.com/api/assets`
+
+
+### Parametrôs do post
+
+Parâmetro | Descrição
+--------- | -----------
+name | nome do asset
+attachment | arquivo do post
+
+
+## Deletar um Asset
+
+```ruby
+require 'httparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+asset = HTTParty.delete("https://api.chiligumvideos.com/api/assets/<ID>", headers: headers)
+asset.body
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
+curl -X DELETE \
+"https://api.chiligumvideos.com/api/assets/<ID>" \
+-H "token: seutoken"
+
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
+> O comando acima deve retornar uma estrutura JSON:
 
 ```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
+{"msg":"deleted"}
 ```
-
-This endpoint retrieves a specific kitten.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`DELETE https://api.chiligumvideos.com/api/assets/<ID>`
 
-### URL Parameters
+### Parametrôs do delete
 
-Parameter | Description
+Parâmetro | Descrição
 --------- | -----------
-ID | The ID of the kitten to delete
+ID | ID do asset a ser deletado
 
