@@ -693,3 +693,12 @@ Parâmetro | Descrição
 ID | ID do asset a ser deletado
 
 
+# Templates
+
+## Overview
+
+ Todos os templates utilizados para a criação de vídeos devem ser persistidos nos próximos endpoints.Todos
+ os moldes de vídeos podems ser persistidos nos endpoints abaixo.
+
+## Receber todos Templates
+
