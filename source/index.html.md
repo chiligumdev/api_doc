@@ -106,8 +106,178 @@ curl "https://api.chiligumvideos.com/api/fonts"
 > O comando acima retorna um JSON:
 
 ```json
+[  
+   {  
+      "id":1,
+      "name":"Fonte do Vídeo 1",
+      "url":"https://s3.amazonaws.com/apiteaser/fonts/8ed7d3ab7ff119921316dbb2077211b168803a0d.ttf",
+      "font_file_name":"RackMultipart20170830-30777-1p780sx.ttf",
+      "font_content_type":"application/font-sfnt",
+      "metadata":"Helvetica-Normal",
+      "created_at":"2017-08-30T19:13:47.722Z",
+      "updated_at":"2017-08-30T19:13:47.722Z"
+   },
+   {  
+      "id":2,
+      "name":"Fonte do Vídeo 2",
+      "url":"https://s3.amazonaws.com/apiteaser/fonts/3269f186d9cf12440428af94e1c622039b7d679a.ttf",
+      "font_file_name":"RackMultipart20170830-21726-15ncv0y.ttf",
+      "font_content_type":"application/font-sfnt",
+      "metadata":"Kiss Me or Not",
+      "created_at":"2017-08-30T14:07:05.499Z",
+      "updated_at":"2017-08-30T14:07:05.499Z"
+   }
+]
+```
+
+Este endpoint retorna todas as fontes.
+
+### HTTP Request
+
+`GET https://api.chiligumvideos.com/api/fonts`
+
+<aside class="notice">
+Não esqueça de informar o token no header
+</aside>
+
+## Receber uma fonte especifica
+
+
+```ruby
+require 'httparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+font = HTTParty.get("https://api.chiligumvideos.com/api/fonts/<ID>", headers: headers)
+font.body
+```
+
+```shell
+curl "https://api.chiligumvideos.com/api/fonts/<ID>"
+  -H "token: seutoken"
+```
+
+> O comando acima deve retornar uma estrutura de JSON:
+
+```json
+{  
+   "id":21,
+   "name":"Fonte extra",
+   "url":"https://s3.amazonaws.com/apiteaser/fonts/d1dd44a427a1a3eb34b406b1c85ea56dedee4be1.ttf",
+   "font_file_name":"RackMultipart20170830-20056-11ep8pj.ttf",
+   "font_content_type":"application/font-sfnt",
+   "metadata":"Larger Mime",
+   "created_at":"2017-08-30T13:15:23.743Z",
+   "updated_at":"2017-08-30T13:15:23.743Z"
+}
 
 ```
+
+Este endpoint retorna uma fonte através de seu ID.
+
+### HTTP Request
+
+`GET https://api.chiligumvideos.com/api/fonts/<ID>`
+
+### URL Parameters
+
+Parâmetro | Descrição
+--------- | -----------
+ID | ID da fonte que deseja retornar
+
+## Criar uma Fonte
+
+```shell
+curl "https://api.chiligumvideos.com/api/fonts" \
+-H "token: seutoken" \   
+-F "[font]name=logo" \
+-F "[font]font=@/Users/Desktop/minhafonte.ttf"
+```
+
+```ruby
+require 'httparty'
+require 'httmultiparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+font = HTTMultiParty.post('https://api.chiligumvideos.com/api/fonts', :query => {
+  font: { 
+   name: 'Minha Fonte',
+   font: File.new('/Users/Desktop/minhafonte.ttf')
+  }}, headers: headers)
+font.body
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+ {  
+    "id":29,
+    "name":"Minha Fonte",
+    "url":"https://s3.amazonaws.com/apiteaser/fonts/8aee59959d03d261b0ce3d9b1a153d9499cfa511.ttf",
+    "font_file_name":"Effra_Std_Bd.ttf",
+    "font_content_type":"application/octet-stream",
+    "metadata":"Effra Bold",
+    "created_at":"2017-09-27T16:50:49.899Z",
+    "updated_at":"2017-09-27T16:50:49.899Z"
+ }
+```
+
+### HTTP Request
+
+`POST https://api.chiligumvideos.com/api/fonts`
+
+
+### Parametrôs do post
+
+Parâmetro | Descrição
+--------- | -----------
+name  | nome da fonte
+fonte | arquivo do post
+
+## Deletar uma Fonte
+
+```ruby
+require 'httparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+font = HTTParty.delete("https://api.chiligumvideos.com/api/fonts/<ID>", headers: headers)
+font.body
+```
+
+```shell
+curl -X DELETE \
+"https://api.chiligumvideos.com/api/fonts/<ID>" \
+-H "token: seutoken"
+
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+{"msg":"deleted"}
+```
+
+### HTTP Request
+
+`DELETE https://api.chiligumvideos.com/api/fonts/<ID>`
+
+### Parametrôs do delete
+
+Parâmetro | Descrição
+--------- | -----------
+ID | ID da fonte a ser deletado
+
 
 # Assets
 
