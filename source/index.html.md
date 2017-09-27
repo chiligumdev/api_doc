@@ -80,6 +80,35 @@ Também passe o content type nos headers para:
 Você deve substituir <code>seutoken</code> para o token da sua conta.
 </aside>
 
+# Fontes
+
+## Overview
+
+Todas as fontes utilizadas para personalizar o seu vídeo devem ser persistidas através deste endpoint, por aqui será possível adicionar, remover e editar fontes cadastradas disponíveis para a utilização durante o processo de criação de seus vídeos.
+
+## Receber todas as fontes
+
+```ruby
+require 'httparty'
+
+headers = {
+  'token' = 'seutoken',
+  'Content-Type' = 'multipart/form-data'
+}
+
+fonts = HTTParty.get("https://api.chiligumvideos.com/api/fonts", headers: headers)
+fonts.body
+``` 
+```shell
+curl "https://api.chiligumvideos.com/api/fonts"
+  -H "token: seutoken"
+```
+> O comando acima retorna um JSON:
+
+```json
+
+```
+
 # Assets
 
 ## Overview
