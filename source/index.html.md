@@ -702,3 +702,776 @@ ID | ID do asset a ser deletado
 
 ## Receber todos Templates
 
+```ruby
+require 'httparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+templates = HTTParty.get("https://api.chiligumvideos.com/api/templates", headers: headers)
+templates.body
+```
+
+```shell
+curl "https://api.chiligumvideos.com/api/templates"
+  -H "token: seutoken"
+```
+
+> O comando acima retorna um JSON:
+
+```json
+[  
+   {  
+      "id":42,
+      "name":"Second Template",
+      "assets":{  
+         "Abertura_PreRender.mp4":""
+      },
+      "config_fields":{  
+         "name":"Template_Doencas",
+         "duration":"20",
+         "variables":{  
+            "foto":{  
+               "name":"Imagem",
+               "type":"img",
+               "width":"1600",
+               "height":"900",
+               "output":"Foto.png"
+            },
+            "logo":{  
+               "name":"Logo",
+               "type":"img",
+               "width":"1030",
+               "height":"470",
+               "output":"Logo.png"
+            },
+            "texto_1":{  
+               "font":{  
+                  "size":"60",
+                  "family":"MyriadPro-Regular"
+               },
+               "name":"Texto de Abertura",
+               "type":"text",
+               "color":"#50747B",
+               "output":"Texto_1.png"
+            },
+            "texto_2":{  
+               "font":{  
+                  "size":"120",
+                  "family":"MyriadPro-Semibold"
+               },
+               "name":"Título",
+               "type":"text",
+               "color":"#FFFFFF",
+               "output":"Texto_2.png"
+            },
+            "texto_3":{  
+               "font":{  
+                  "size":"73",
+                  "family":"MyriadPro-Semibold"
+               },
+               "kind":"caption",
+               "name":"Descrição",
+               "type":"text",
+               "align":"West",
+               "color":"#FFFFFF",
+               "width":"990",
+               "height":"265",
+               "output":"Texto_3.png"
+            },
+            "texto_4":{  
+               "font":{  
+                  "size":"130",
+                  "family":"MyriadPro-Bold"
+               },
+               "kind":"caption",
+               "name":"Texto de encerramento",
+               "type":"text",
+               "align":"center",
+               "color":"#FFFFFF",
+               "width":"1026",
+               "height":"410",
+               "output":"Texto_4.png"
+            }
+         },
+         "main_frame":"35",
+         "preview_frames":[  
+            "35",
+            "101",
+            "154",
+            "238",
+            "462",
+            "574"
+         ],
+         "main_composition":"Template_Doencas"
+      },
+      "fonts":"{}",
+      "aepx_file_name":"template.aepx",
+      "aepx_content_type":"application/octet-stream",
+      "aepx_file_size":"644838",
+      "created_at":"2017-09-29T14:26:32.880Z",
+      "updated_at":"2017-09-29T14:26:32.880Z"
+   },
+   {  
+      "id":41,
+      "name":"First Template",
+      "assets":{  
+         "Abertura_PreRender.mp4":""
+      },
+      "config_fields":{  
+         "name":"Template_Doencas",
+         "duration":"20",
+         "variables":{  
+            "foto":{  
+               "name":"Imagem",
+               "type":"img",
+               "width":"1600",
+               "height":"900",
+               "output":"Foto.png"
+            },
+            "logo":{  
+               "name":"Logo",
+               "type":"img",
+               "width":"1030",
+               "height":"470",
+               "output":"Logo.png"
+            },
+            "texto_1":{  
+               "font":{  
+                  "size":"60",
+                  "family":"MyriadPro-Regular"
+               },
+               "name":"Texto de Abertura",
+               "type":"text",
+               "color":"#50747B",
+               "output":"Texto_1.png"
+            },
+            "texto_2":{  
+               "font":{  
+                  "size":"120",
+                  "family":"MyriadPro-Semibold"
+               },
+               "name":"Título",
+               "type":"text",
+               "color":"#FFFFFF",
+               "output":"Texto_2.png"
+            },
+            "texto_3":{  
+               "font":{  
+                  "size":"73",
+                  "family":"MyriadPro-Semibold"
+               },
+               "kind":"caption",
+               "name":"Descrição",
+               "type":"text",
+               "align":"West",
+               "color":"#FFFFFF",
+               "width":"990",
+               "height":"265",
+               "output":"Texto_3.png"
+            },
+            "texto_4":{  
+               "font":{  
+                  "size":"130",
+                  "family":"MyriadPro-Bold"
+               },
+               "kind":"caption",
+               "name":"Texto de encerramento",
+               "type":"text",
+               "align":"center",
+               "color":"#FFFFFF",
+               "width":"1026",
+               "height":"410",
+               "output":"Texto_4.png"
+            }
+         },
+         "main_frame":"35",
+         "preview_frames":[  
+            "35",
+            "101",
+            "154",
+            "238",
+            "462",
+            "574"
+         ],
+         "main_composition":"Template_Doencas"
+      },
+      "fonts":"{}",
+      "aepx_file_name":"template.aepx",
+      "aepx_content_type":"application/octet-stream",
+      "aepx_file_size":"644838",
+      "created_at":"2017-09-29T14:26:05.371Z",
+      "updated_at":"2017-09-29T14:26:05.371Z"
+   }
+]
+
+```
+
+Este endpoint retorna todos os templates.
+
+
+### HTTP Request
+
+`GET https://api.chiligumvideos.com/api/templates`
+
+
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
+
+## Receber um Template específico
+
+```ruby
+require 'httparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+template = HTTParty.get("https://api.chiligumvideos.com/api/templates/<ID>", headers: headers)
+template.body
+```
+
+```shell
+curl "https://api.chiligumvideos.com/api/templates/<ID>"
+  -H "token: seutoken"
+```
+
+> O comando acima deve retornar uma estrutura de JSON:
+
+```json
+ {  
+    "id":42,
+    "name":"Second Template",
+    "assets":{  
+       "Abertura_PreRender.mp4":""
+    },
+    "config_fields":{  
+       "name":"Template_Doencas",
+       "duration":"20",
+       "variables":{  
+          "foto":{  
+             "name":"Imagem",
+             "type":"img",
+             "width":"1600",
+             "height":"900",
+             "output":"Foto.png"
+          },
+          "logo":{  
+             "name":"Logo",
+             "type":"img",
+             "width":"1030",
+             "height":"470",
+             "output":"Logo.png"
+          },
+          "texto_1":{  
+             "font":{  
+                "size":"60",
+                "family":"MyriadPro-Regular"
+             },
+             "name":"Texto de Abertura",
+             "type":"text",
+             "color":"#50747B",
+             "output":"Texto_1.png"
+          },
+          "texto_2":{  
+             "font":{  
+                "size":"120",
+                "family":"MyriadPro-Semibold"
+             },
+             "name":"Título",
+             "type":"text",
+             "color":"#FFFFFF",
+             "output":"Texto_2.png"
+          },
+          "texto_3":{  
+             "font":{  
+                "size":"73",
+                "family":"MyriadPro-Semibold"
+             },
+             "kind":"caption",
+             "name":"Descrição",
+             "type":"text",
+             "align":"West",
+             "color":"#FFFFFF",
+             "width":"990",
+             "height":"265",
+             "output":"Texto_3.png"
+          },
+          "texto_4":{  
+             "font":{  
+                "size":"130",
+                "family":"MyriadPro-Bold"
+             },
+             "kind":"caption",
+             "name":"Texto de encerramento",
+             "type":"text",
+             "align":"center",
+             "color":"#FFFFFF",
+             "width":"1026",
+             "height":"410",
+             "output":"Texto_4.png"
+          }
+       },
+       "main_frame":"35",
+       "preview_frames":[  
+          "35",
+          "101",
+          "154",
+          "238",
+          "462",
+          "574"
+       ],
+       "main_composition":"Template_Doencas"
+    },
+    "fonts":"{}",
+    "aepx_file_name":"template.aepx",
+    "aepx_content_type":"application/octet-stream",
+    "aepx_file_size":"644838",
+    "created_at":"2017-09-29T14:26:32.880Z",
+    "updated_at":"2017-09-29T14:26:32.880Z"
+ }
+```
+
+Este endpoint retorna um template através de seu ID.
+
+### HTTP Request
+
+`GET https://api.chiligumvideos.com/api/templates/<ID>`
+
+### URL Parameters
+
+Parâmetro | Descrição
+--------- | -----------
+ID | ID do template que deseja retornar
+
+## Criar um Template
+
+```shell
+curl "https://api.chiligumvideos.com/api/templates" \
+-H "token: seutoken" \   
+-F "[template]name=nome_do_template" \
+-F "[template]assets=@/Users/Desktop/logo.mp4" \
+-F "[template]font=@Users/Desktop/font.ttf"
+-F "[template]config_json=@/Users/Desktop/config_json" \
+-F "[template]aepx=@Users/Desktop/template.aepx"
+```
+
+```ruby
+require 'httparty'
+require 'httmultiparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+template = HTTMultiParty.post('https://api.chiligumvideos.com/api/template', :query => {
+  template: { 
+      name: 'Second Template',
+      assets: {'Abertura_PreRender.mp4': assets},
+      font: {'font_1': 'path-of_font_file.ttf'}
+      config_fields: arquivo_json,
+      aepx: File.new('/home/lean/Downloads/template.aepx')
+    }}, headers: headers)
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+  {  
+     "id":43,
+     "name":"Second Template",
+     "assets":{  
+        "Abertura_PreRender.mp4":""
+     },
+     "config_fields":{  
+        "name":"Template_Doencas",
+        "duration":"20",
+        "main_composition":"Template_Doencas",
+        "preview_frames":[  
+           "35",
+           "101",
+           "154",
+           "238",
+           "462",
+           "574"
+        ],
+        "main_frame":"35",
+        "variables":{  
+           "foto":{  
+              "name":"Imagem",
+              "type":"img",
+              "output":"Foto.png",
+              "width":"1600",
+              "height":"900"
+           },
+           "logo":{  
+              "name":"Logo",
+              "type":"img",
+              "output":"Logo.png",
+              "width":"1030",
+              "height":"470"
+           },
+           "texto_1":{  
+              "name":"Texto de Abertura",
+              "type":"text",
+              "output":"Texto_1.png",
+              "font":{  
+                 "family":"MyriadPro-Regular",
+                 "size":"60"
+              },
+              "color":"#50747B"
+           },
+           "texto_2":{  
+              "name":"Título",
+              "type":"text",
+              "output":"Texto_2.png",
+              "font":{  
+                 "family":"MyriadPro-Semibold",
+                 "size":"120"
+              },
+              "color":"#FFFFFF"
+           },
+           "texto_3":{  
+              "name":"Descrição",
+              "type":"text",
+              "output":"Texto_3.png",
+              "font":{  
+                 "family":"MyriadPro-Semibold",
+                 "size":"73"
+              },
+              "color":"#FFFFFF",
+              "kind":"caption",
+              "width":"990",
+              "height":"265",
+              "align":"West"
+           },
+           "texto_4":{  
+              "name":"Texto de encerramento",
+              "type":"text",
+              "output":"Texto_4.png",
+              "font":{  
+                 "family":"MyriadPro-Bold",
+                 "size":"130"
+              },
+              "color":"#FFFFFF",
+              "kind":"caption",
+              "width":"1026",
+              "height":"410",
+              "align":"center"
+           }
+        }
+     },
+     "fonts":{  
+        "font_1":"Effra_Std_Rg.ttf"
+     },
+     "aepx_file_name":"template.aepx",
+     "aepx_content_type":"application/octet-stream",
+     "aepx_file_size":"644838",
+     "created_at":"2017-09-29T17:54:19.932Z",
+     "updated_at":"2017-09-29T17:54:19.932Z"
+  }
+```
+
+### HTTP Request
+
+`POST https://api.chiligumvideos.com/api/templates`
+
+
+### Parametrôs do post
+
+Parâmetro | Descrição
+--------- | -----------
+name            | nome do template
+assets          | Arquivos de Assets estáticos criados no edpoint de Assets
+fonts           | Arquivos de fontes utilizadas no template
+config_fields   | Campos dinâmcos do template em formato json
+aepx            | Arquivo aepx criado no AfterEffects
+
+## Deletar Template
+
+```ruby
+require 'httparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+template = HTTParty.delete("https://api.chiligumvideos.com/api/templates/<ID>", headers: headers)
+template.body
+```
+
+```shell
+curl -X DELETE \
+"https://api.chiligumvideos.com/api/templates/<ID>" \
+-H "token: seutoken"
+
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+{"msg":"deleted"}
+```
+
+### HTTP Request
+
+`DELETE https://api.chiligumvideos.com/api/templates/<ID>`
+
+### Parametrôs do delete
+
+Parâmetro | Descrição
+--------- | -----------
+ID | ID do template a ser deletado
+
+
+# Videos
+
+## Overview
+
+ Todos os vídeos podem ser persistidos através dos próximos endpoints.
+
+## Receber todos os vídeos criados pertencentes ao dono do token informado junto a requisição.
+
+```ruby
+require 'httparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+videos = HTTParty.get("https://api.chiligumvideos.com/api/videos", headers: headers)
+videos.body
+```
+
+```shell
+curl "https://api.chiligumvideos.com/api/videos"
+  -H "token: seutoken"
+```
+
+> O comando acima retorna um JSON:
+
+```json
+[  
+   {  
+      "id":2,
+      "name":"Video2",
+      "thumbnail_url":null,
+      "file_hash":"7f43e7c8d4c903e0f2578467",
+      "resolution":1080,
+      "template_id":42,
+      "track_id":18,
+      "data":{  
+         "logo":"",
+         "texto_1":"Texto de Abertura",
+         "texto_2":"Titulo",
+         "texto_3":"Descricao",
+         "texto_4":"Texto de encerramento"
+      },
+      "created_at":"2017-09-29T19:16:06.206Z",
+      "updated_at":"2017-09-29T19:16:06.206Z"
+   },
+   {  
+      "id":1,
+      "name":"Video1",
+      "thumbnail_url":null,
+      "file_hash":"1ed2b7899d503535923417ea",
+      "resolution":1080,
+      "template_id":42,
+      "track_id":18,
+      "data":{  
+         "logo":"",
+         "texto_1":"Texto de Abertura",
+         "texto_2":"Titulo",
+         "texto_3":"Descricao",
+         "texto_4":"Texto de encerramento"
+      },
+      "created_at":"2017-09-29T19:15:33.821Z",
+      "updated_at":"2017-09-29T19:15:33.821Z"
+   }
+]
+```
+
+Este endpoint retorna todos os videos.
+
+
+### HTTP Request
+
+`GET https://api.chiligumvideos.com/api/videos`
+
+
+<aside class="notice">
+Não esqueça de informar o token no header
+</aside>
+
+## Receber um Video específico
+
+```ruby
+require 'httparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+video = HTTParty.get("https://api.chiligumvideos.com/api/videos/<ID>", headers: headers)
+video.body
+```
+
+```shell
+curl "https://api.chiligumvideos.com/api/videos/<ID>"
+  -H "token: seutoken"
+```
+
+> O comando acima deve retornar uma estrutura de JSON:
+
+```json
+  {  
+     "id":1,
+     "name":"Video1",
+     "thumbnail_url":null,
+     "file_hash":"1ed2b7899d503535923417ea",
+     "resolution":1080,
+     "template_id":42,
+     "track_id":18,
+     "data":{  
+        "logo":"meulogo.jpg",
+        "texto_1":"Texto de Abertura",
+        "texto_2":"Titulo",
+        "texto_3":"Descricao",
+        "texto_4":"Texto de encerramento"
+     },
+     "created_at":"2017-09-29T19:15:33.821Z",
+     "updated_at":"2017-09-29T19:15:33.821Z"
+  }
+```
+
+Este endpoint retorna um video através de seu ID.
+
+### HTTP Request
+
+`GET https://api.chiligumvideos.com/api/videos/<ID>`
+
+### URL Parameters
+
+Parâmetro | Descrição
+--------- | -----------
+ID | ID do video que deseja retornar
+
+
+
+## Criar um video
+
+
+```shell
+curl "https://api.chiligumvideos.com/api/videos" \
+-H "token: seutoken" \   
+-F "[video]name=Video1" \
+-F "[video]fonts=font1.ttf" \
+-F "[video]resolution=1080" \
+-F "[video]track_id=1", \
+-F "[video]data=fields_json" \
+```
+
+```ruby
+require 'httparty'
+require 'httmultiparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+@video = HTTMultiParty.post('https://api.chiligumvideos.com/api/videos/api/videos', :query => {
+  video: { 
+   name: 'Video1',
+    resolution: 1080,
+    track_id: 18,
+    template_id: 42,
+    data: {'texto_1': 'Texto de Abertura', 'texto_2': 'Titulo', 'texto_3': 'Descricao', 'texto_4': 'Texto de encerramento', 'logo': @foto }
+  }}, headers: headers)
+
+
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+  {  
+     "id":1,
+     "name":"Video1",
+     "thumbnail_url":"thumb.jpg",
+     "file_hash":"1ed2b7899d503535923417ea",
+     "resolution":1080,
+     "template_id":42,
+     "track_id":18,
+     "data":{  
+        "texto_1":"Texto de Abertura",
+        "texto_2":"Titulo",
+        "texto_3":"Descricao",
+        "texto_4":"Texto de encerramento",
+        "logo":"foto.jpg"
+     },
+     "created_at":"2017-09-29T19:15:33.821Z",
+     "updated_at":"2017-09-29T19:15:33.821Z"
+  }
+```
+
+### HTTP Request
+
+`POST https://api.chiligumvideos.com/api/videos`
+
+
+### Parametrôs do post
+
+Parâmetro | Descrição
+--------- | -----------
+name | nome do video
+resolution  | resolução de exibição do vídeo a ser criado
+track_id    | id da trilha a ser transmitida junto ao vídeo
+template_id | template utilizado para criação do vídeo
+data        | dados de preenchimento dos campos disponíveis no template
+
+
+## Deletar um video
+
+```ruby
+require 'httparty'
+
+headers = { 
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
+}
+
+video = HTTParty.delete("https://api.chiligumvideos.com/api/videos/<ID>", headers: headers)
+video.body
+```
+
+```shell
+curl -X DELETE \
+"https://api.chiligumvideos.com/api/videos/<ID>" \
+-H "token: seutoken"
+
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+{"msg":"deleted"}
+```
+
+### HTTP Request
+
+`DELETE https://api.chiligumvideos.com/api/videos/<ID>`
+
+### Parametrôs do delete
+
+Parâmetro | Descrição
+--------- | -----------
+ID | ID do video a ser deletado
