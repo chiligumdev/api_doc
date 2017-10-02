@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -213,8 +213,6 @@
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -222,22 +220,108 @@
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#introducao" class="toc-h1 toc-link" data-title="Introdução">Introdução</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#autentificacao" class="toc-h1 toc-link" data-title="Autentificação">Autentificação</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#fontes" class="toc-h1 toc-link" data-title="Fontes">Fontes</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Kittens">Get All Kittens</a>
+                    <a href="#overview" class="toc-h2 toc-link" data-title="Fontes">Overview</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Kittens">Get a Specific Kitten</a>
+                    <a href="#receber-todas-as-fontes" class="toc-h2 toc-link" data-title="Fontes">Receber todas as fontes</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Kittens">Delete a Specific Kitten</a>
+                    <a href="#receber-uma-fonte-especifica" class="toc-h2 toc-link" data-title="Fontes">Receber uma fonte especifica</a>
+                  </li>
+                  <li>
+                    <a href="#criar-uma-fonte" class="toc-h2 toc-link" data-title="Fontes">Criar uma Fonte</a>
+                  </li>
+                  <li>
+                    <a href="#deletar-uma-fonte" class="toc-h2 toc-link" data-title="Fontes">Deletar uma Fonte</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#assets" class="toc-h1 toc-link" data-title="Assets">Assets</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview-2" class="toc-h2 toc-link" data-title="Assets">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#receber-todos-assets" class="toc-h2 toc-link" data-title="Assets">Receber todos Assets</a>
+                  </li>
+                  <li>
+                    <a href="#receber-um-asset-especifico" class="toc-h2 toc-link" data-title="Assets">Receber um Asset específico</a>
+                  </li>
+                  <li>
+                    <a href="#criar-um-asset" class="toc-h2 toc-link" data-title="Assets">Criar um Asset</a>
+                  </li>
+                  <li>
+                    <a href="#deletar-um-asset" class="toc-h2 toc-link" data-title="Assets">Deletar um Asset</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tracks" class="toc-h1 toc-link" data-title="Tracks">Tracks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview-3" class="toc-h2 toc-link" data-title="Tracks">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#receber-todos-assets-2" class="toc-h2 toc-link" data-title="Tracks">Receber todos Assets</a>
+                  </li>
+                  <li>
+                    <a href="#receber-um-asset-especifico-2" class="toc-h2 toc-link" data-title="Tracks">Receber um Asset específico</a>
+                  </li>
+                  <li>
+                    <a href="#criar-um-asset-2" class="toc-h2 toc-link" data-title="Tracks">Criar um Asset</a>
+                  </li>
+                  <li>
+                    <a href="#deletar-um-asset-2" class="toc-h2 toc-link" data-title="Tracks">Deletar um Asset</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#templates" class="toc-h1 toc-link" data-title="Templates">Templates</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview-4" class="toc-h2 toc-link" data-title="Templates">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#receber-todos-templates" class="toc-h2 toc-link" data-title="Templates">Receber todos Templates</a>
+                  </li>
+                  <li>
+                    <a href="#receber-um-template-especifico" class="toc-h2 toc-link" data-title="Templates">Receber um Template específico</a>
+                  </li>
+                  <li>
+                    <a href="#criar-um-template" class="toc-h2 toc-link" data-title="Templates">Criar um Template</a>
+                  </li>
+                  <li>
+                    <a href="#deletar-template" class="toc-h2 toc-link" data-title="Templates">Deletar Template</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#videos" class="toc-h1 toc-link" data-title="Videos">Videos</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#overview-5" class="toc-h2 toc-link" data-title="Videos">Overview</a>
+                  </li>
+                  <li>
+                    <a href="#receber-todos-os-videos-criados-pertencentes-ao-dono-do-token-informado-junto-a-requisicao" class="toc-h2 toc-link" data-title="Videos">Receber todos os vídeos criados pertencentes ao dono do token informado junto a requisição.</a>
+                  </li>
+                  <li>
+                    <a href="#receber-um-video-especifico" class="toc-h2 toc-link" data-title="Videos">Receber um Video específico</a>
+                  </li>
+                  <li>
+                    <a href="#criar-um-video" class="toc-h2 toc-link" data-title="Videos">Criar um video</a>
+                  </li>
+                  <li>
+                    <a href="#deletar-um-video" class="toc-h2 toc-link" data-title="Videos">Deletar um video</a>
                   </li>
               </ul>
           </li>
@@ -246,190 +330,1318 @@
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://api.chiligumvideos.com/'>Sign Up for a Developer Key</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='introducao'>Introdução</h1>
+<p>Bem-vindo a API da Chiligum! Você pode usar nossa API para gerar vídeos customizados em massa.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Temos exemplos em Shell e Ruby. Você pode usar qualquer linguagem que tenha suporte a HTTP.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+<p>Nossa API é composta por <strong>templates</strong>, <strong>tracks</strong>, <strong>assets</strong>, <strong>fonts</strong> e <strong>vídeos</strong>. Sendo eles:</p>
+
+<p><strong>Templates</strong> armazena o aepx gerado pelo AfterEffects, assets estáticos, fonts e configurações do template</p>
+
+<p><strong>Tracks</strong> música do vídeo em mp3. Sendo opcional caso o vídeo não tenha uma faixa de áudio.</p>
+
+<p><strong>Assets</strong> responsável por armazernar todos vídeos e imagens que são usados no template como assets estáticos e nos vídeos como um logo ou foto enviada por um usuário.</p>
+
+<p><strong>Fonts</strong> caso o template tenha alguma font customizada você deve fazer o upload delas neste end-point e informar o link 
+dentro do end point de templates.</p>
+
+<p><strong>Vídeos</strong> recebe as informações enviadas a patir de tracks, templates e assets.</p>
+
+<p><img src='images/introduction.png' class='introduction'></p>
+<h1 id='autentificacao'>Autentificação</h1>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Para autentificar passe o token no header em cada request:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/"</span>
+  -H <span class="s2">"token: seutoken"</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Tenha certeza que você mudou <code>seutoken</code> com seu token da API.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>Para ter acesso a nossa API você deve criar uma conta em <a href="http://api.chiligumvideos.com/credentials">nosso sistema</a>.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Após criar a conta você deve entrar em contato conosco para mudarmos o status da conta para enabled.</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p>Em nosso sistema no meu &quot;Credentials&quot; você pode pegar o token de acesso. Ele deve ser passado a cada requisição através dos headers:</p>
+
+<p><code>token: seutoken</code></p>
+
+<p>Também passe o content type nos headers para:</p>
+
+<p><code>Content-Type: multipart/form-data</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Você deve substituir <code>seutoken</code> para o token da sua conta.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id='fontes'>Fontes</h1><h2 id='overview'>Overview</h2>
+<p>Todas as fontes utilizadas para personalizar o seu vídeo devem ser persistidas através deste endpoint, por aqui será possível adicionar, remover e editar fontes cadastradas disponíveis para a utilização durante o processo de criação de seus vídeos.</p>
+<h2 id='receber-todas-as-fontes'>Receber todas as fontes</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'token'</span> <span class="o">=</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<span class="n">fonts</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/fonts"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">fonts</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/fonts"</span>
+  -H <span class="s2">"token: seutoken"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>O comando acima retorna um JSON:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">  
+   </span><span class="p">{</span><span class="w">  
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Fonte do Vídeo 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/apiteaser/fonts/8ed7d3ab7ff119921316dbb2077211b168803a0d.ttf"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"font_file_name"</span><span class="p">:</span><span class="s2">"RackMultipart20170830-30777-1p780sx.ttf"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"font_content_type"</span><span class="p">:</span><span class="s2">"application/font-sfnt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"metadata"</span><span class="p">:</span><span class="s2">"Helvetica-Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-08-30T19:13:47.722Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-08-30T19:13:47.722Z"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">  
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Fonte do Vídeo 2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/apiteaser/fonts/3269f186d9cf12440428af94e1c622039b7d679a.ttf"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"font_file_name"</span><span class="p">:</span><span class="s2">"RackMultipart20170830-21726-15ncv0y.ttf"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"font_content_type"</span><span class="p">:</span><span class="s2">"application/font-sfnt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"metadata"</span><span class="p">:</span><span class="s2">"Kiss Me or Not"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-08-30T14:07:05.499Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-08-30T14:07:05.499Z"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>Este endpoint retorna todas as fontes.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<p><code>GET https://api.chiligumvideos.com/api/fonts</code></p>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+Não esqueça de informar o token no header
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='receber-uma-fonte-especifica'>Receber uma fonte especifica</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">font</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/fonts/&lt;ID&gt;"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">font</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/fonts/&lt;ID&gt;"</span>
+  -H <span class="s2">"token: seutoken"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>O comando acima deve retornar uma estrutura de JSON:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">  
+   </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">21</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Fonte extra"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/apiteaser/fonts/d1dd44a427a1a3eb34b406b1c85ea56dedee4be1.ttf"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"font_file_name"</span><span class="p">:</span><span class="s2">"RackMultipart20170830-20056-11ep8pj.ttf"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"font_content_type"</span><span class="p">:</span><span class="s2">"application/font-sfnt"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"metadata"</span><span class="p">:</span><span class="s2">"Larger Mime"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-08-30T13:15:23.743Z"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-08-30T13:15:23.743Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+</span></code></pre>
+<p>Este endpoint retorna uma fonte através de seu ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>GET https://api.chiligumvideos.com/api/fonts/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th>Parâmetro</th>
+<th>Descrição</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>ID da fonte que deseja retornar</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='criar-uma-fonte'>Criar uma Fonte</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/fonts"</span> <span class="se">\</span>
+-H <span class="s2">"token: seutoken"</span> <span class="se">\ </span>  
+-F <span class="s2">"[font]name=logo"</span> <span class="se">\</span>
+-F <span class="s2">"[font]font=@/Users/Desktop/minhafonte.ttf"</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="nb">require</span> <span class="s1">'httmultiparty'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">font</span> <span class="o">=</span> <span class="no">HTTMultiParty</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="s1">'https://api.chiligumvideos.com/api/fonts'</span><span class="p">,</span> <span class="ss">:query</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="ss">font: </span><span class="p">{</span> 
+   <span class="ss">name: </span><span class="s1">'Minha Fonte'</span><span class="p">,</span>
+   <span class="ss">font: </span><span class="no">File</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'/Users/Desktop/minhafonte.ttf'</span><span class="p">)</span>
+  <span class="p">}},</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">font</span><span class="p">.</span><span class="nf">body</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>O comando acima deve retornar uma estrutura JSON:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">  
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">29</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Minha Fonte"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/apiteaser/fonts/8aee59959d03d261b0ce3d9b1a153d9499cfa511.ttf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"font_file_name"</span><span class="p">:</span><span class="s2">"Effra_Std_Bd.ttf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"font_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="s2">"Effra Bold"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-27T16:50:49.899Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-27T16:50:49.899Z"</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.chiligumvideos.com/api/fonts</code></p>
+<h3 id='parametros-do-post'>Parametrôs do post</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>nome da fonte</td>
+</tr>
+<tr>
+<td>fonte</td>
+<td>arquivo do post</td>
+</tr>
+</tbody></table>
+<h2 id='deletar-uma-fonte'>Deletar uma Fonte</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">font</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/fonts/&lt;ID&gt;"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">font</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.chiligumvideos.com/api/fonts/&lt;ID&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"token: seutoken"</span>
+
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"deleted"</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE https://api.chiligumvideos.com/api/fonts/&lt;ID&gt;</code></p>
+<h3 id='parametros-do-delete'>Parametrôs do delete</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID da fonte a ser deletado</td>
+</tr>
+</tbody></table>
+<h1 id='assets'>Assets</h1><h2 id='overview-2'>Overview</h2>
+<p>Todos os assets (imagens e vídeos) utilizados dentro do template ou como input de vídeos devem ser feitos o upload através deste end-point. No momento não suportamos assets de sites ou sistemas de terceiros.</p>
+<h2 id='receber-todos-assets'>Receber todos Assets</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">assets</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/assets"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">assets</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/assets"</span>
+  -H <span class="s2">"token: seutoken"</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna um JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Abertura_PreRender.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/teaserapi/assets/b4c067a22d9a272493340c654bd4f2b7802d06e3.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hash_name"</span><span class="p">:</span><span class="s2">"b4c067a22d9a272493340c654bd4f2b7802d06e3.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_name"</span><span class="p">:</span><span class="s2">"Abertura_PreRender.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_size"</span><span class="p">:</span><span class="s2">"728537"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-08-23T21:30:26.713Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-08-23T21:30:26.713Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"logo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/teaserapi/assets/55780e178d171747c0cb81597262f3c7abbae9b8.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hash_name"</span><span class="p">:</span><span class="s2">"55780e178d171747c0cb81597262f3c7abbae9b8.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_name"</span><span class="p">:</span><span class="s2">"foto.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_size"</span><span class="p">:</span><span class="s2">"32013"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-08-23T21:30:25.398Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-08-23T21:30:25.398Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>Este endpoint retorna todas os assets.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api.chiligumvideos.com/api/assets</code></p>
+
+<aside class="notice">
+Não esqueça de informar o token no header
+</aside>
+<h2 id='receber-um-asset-especifico'>Receber um Asset específico</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">asset</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/assets/&lt;ID&gt;"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">asset</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/assets/&lt;ID&gt;"</span>
+  -H <span class="s2">"token: seutoken"</span>
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura de JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Abertura_PreRender.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/teaserapi/assets/b4c067a22d9a272493340c654bd4f2b7802d06e3.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hash_name"</span><span class="p">:</span><span class="s2">"b4c067a22d9a272493340c654bd4f2b7802d06e3.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_name"</span><span class="p">:</span><span class="s2">"Abertura_PreRender.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_size"</span><span class="p">:</span><span class="s2">"728537"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-08-23T21:30:26.713Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-08-23T21:30:26.713Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Este endpoint retorna um asset através de seu ID.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.chiligumvideos.com/api/assets/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th>Parâmetro</th>
+<th>Descrição</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>ID do asset que deseja retornar</td>
+</tr>
+</tbody></table>
+<h2 id='criar-um-asset'>Criar um Asset</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/assets"</span> <span class="se">\</span>
+-H <span class="s2">"token: seutoken"</span> <span class="se">\ </span>  
+-F <span class="s2">"[asset]name=logo"</span> <span class="se">\</span>
+-F <span class="s2">"[asset]attachment=@/Users/Desktop/logo.png"</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="nb">require</span> <span class="s1">'httmultiparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">asset</span> <span class="o">=</span> <span class="no">HTTMultiParty</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="s1">'https://api.chiligumvideos.com/api/assets'</span><span class="p">,</span> <span class="ss">:query</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="ss">asset: </span><span class="p">{</span> 
+   <span class="ss">name: </span><span class="s1">'logo'</span><span class="p">,</span>
+   <span class="ss">attachment: </span><span class="no">File</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'/Users/Desktop/logo.png'</span><span class="p">)</span>
+  <span class="p">}},</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">asset</span><span class="p">.</span><span class="nf">body</span>
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"logo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/teaserapi/assets/c8efe50d7b34615ce997a732fdf0da06954bd962.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hash_name"</span><span class="p">:</span><span class="s2">"c8efe50d7b34615ce997a732fdf0da06954bd962.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_name"</span><span class="p">:</span><span class="s2">"logo.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_size"</span><span class="p">:</span><span class="s2">"32013"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-12T03:47:08.078Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-12T03:47:08.078Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST https://api.chiligumvideos.com/api/assets</code></p>
+<h3 id='parametros-do-post-2'>Parametrôs do post</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>nome do asset</td>
+</tr>
+<tr>
+<td>attachment</td>
+<td>arquivo do post</td>
+</tr>
+</tbody></table>
+<h2 id='deletar-um-asset'>Deletar um Asset</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">asset</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/assets/&lt;ID&gt;"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">asset</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.chiligumvideos.com/api/assets/&lt;ID&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"token: seutoken"</span>
+
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"deleted"</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-8'>HTTP Request</h3>
+<p><code>DELETE https://api.chiligumvideos.com/api/assets/&lt;ID&gt;</code></p>
+<h3 id='parametros-do-delete-2'>Parametrôs do delete</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID do asset a ser deletado</td>
+</tr>
+</tbody></table>
+<h1 id='tracks'>Tracks</h1><h2 id='overview-3'>Overview</h2>
+<p>Todos as faixas de som utilizadas no vídeo devem ser feitas o upload neste endpoint. Os formatos de mime-type válidos são
+<strong>audio/mpeg</strong> e <strong>audio/mp3</strong>. No momento não suportamos faixas de sites ou sistemas de terceiros.</p>
+<h2 id='receber-todos-assets-2'>Receber todos Assets</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">tracks</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/tracks"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">tracks</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/tracks"</span>
+  -H <span class="s2">"token: seutoken"</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna um JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Track 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/teaserapi/tracks/3978aadd3b451a3ecbdffc9b3af511f36dce7fc4.mp3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audio_file_name"</span><span class="p">:</span><span class="s2">"track.mp3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audio_file_size"</span><span class="p">:</span><span class="s2">"3221767"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-08-08T07:27:47.237Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-08-08T07:27:47.237Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Nome da track"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/teaserapi/tracks/9453d9e51c1585cc0f5fa1805eb2736917a3eddd.mp3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audio_file_name"</span><span class="p">:</span><span class="s2">"track.mp3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"audio_file_size"</span><span class="p">:</span><span class="s2">"3221767"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-08-08T07:24:55.491Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-08-08T07:24:55.491Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+<p>Este endpoint retorna todas as tracks.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://api.chiligumvideos.com/api/tracks</code></p>
+
+<aside class="notice">
+Não esqueça de informar o token no header
+</aside>
+<h2 id='receber-um-asset-especifico-2'>Receber um Asset específico</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">asset</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/assets/&lt;ID&gt;"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">asset</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/assets/&lt;ID&gt;"</span>
+  -H <span class="s2">"token: seutoken"</span>
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura de JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Abertura_PreRender.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/teaserapi/assets/b4c067a22d9a272493340c654bd4f2b7802d06e3.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hash_name"</span><span class="p">:</span><span class="s2">"b4c067a22d9a272493340c654bd4f2b7802d06e3.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_name"</span><span class="p">:</span><span class="s2">"Abertura_PreRender.mp4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_size"</span><span class="p">:</span><span class="s2">"728537"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-08-23T21:30:26.713Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-08-23T21:30:26.713Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Este endpoint retorna um asset através de seu ID.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET https://api.chiligumvideos.com/api/assets/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID do asset que deseja retornar</td>
+</tr>
+</tbody></table>
+<h2 id='criar-um-asset-2'>Criar um Asset</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/assets"</span> <span class="se">\</span>
+-H <span class="s2">"token: seutoken"</span> <span class="se">\ </span>  
+-F <span class="s2">"[asset]name=logo"</span> <span class="se">\</span>
+-F <span class="s2">"[asset]attachment=@/Users/Desktop/logo.png"</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="nb">require</span> <span class="s1">'httmultiparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">asset</span> <span class="o">=</span> <span class="no">HTTMultiParty</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="s1">'https://api.chiligumvideos.com/api/assets'</span><span class="p">,</span> <span class="ss">:query</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="ss">asset: </span><span class="p">{</span> 
+   <span class="ss">name: </span><span class="s1">'logo'</span><span class="p">,</span>
+   <span class="ss">attachment: </span><span class="no">File</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'/Users/Desktop/logo.png'</span><span class="p">)</span>
+  <span class="p">}},</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">asset</span><span class="p">.</span><span class="nf">body</span>
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"logo"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"https://s3.amazonaws.com/teaserapi/assets/c8efe50d7b34615ce997a732fdf0da06954bd962.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hash_name"</span><span class="p">:</span><span class="s2">"c8efe50d7b34615ce997a732fdf0da06954bd962.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_name"</span><span class="p">:</span><span class="s2">"logo.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attachment_file_size"</span><span class="p">:</span><span class="s2">"32013"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-12T03:47:08.078Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-12T03:47:08.078Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-11'>HTTP Request</h3>
+<p><code>POST https://api.chiligumvideos.com/api/assets</code></p>
+<h3 id='parametros-do-post-3'>Parametrôs do post</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>nome do asset</td>
+</tr>
+<tr>
+<td>attachment</td>
+<td>arquivo do post</td>
+</tr>
+</tbody></table>
+<h2 id='deletar-um-asset-2'>Deletar um Asset</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">asset</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/assets/&lt;ID&gt;"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">asset</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.chiligumvideos.com/api/assets/&lt;ID&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"token: seutoken"</span>
+
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"deleted"</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-12'>HTTP Request</h3>
+<p><code>DELETE https://api.chiligumvideos.com/api/assets/&lt;ID&gt;</code></p>
+<h3 id='parametros-do-delete-3'>Parametrôs do delete</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID do asset a ser deletado</td>
+</tr>
+</tbody></table>
+<h1 id='templates'>Templates</h1><h2 id='overview-4'>Overview</h2>
+<p>Todos os templates utilizados para a criação de vídeos devem ser persistidos nos próximos endpoints.Todos
+ os moldes de vídeos podems ser persistidos nos endpoints abaixo.</p>
+<h2 id='receber-todos-templates'>Receber todos Templates</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">templates</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/templates"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">templates</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/templates"</span>
+  -H <span class="s2">"token: seutoken"</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna um JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">  
+   </span><span class="p">{</span><span class="w">  
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Second Template"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"assets"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"Abertura_PreRender.mp4"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"config_fields"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Template_Doencas"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"duration"</span><span class="p">:</span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"variables"</span><span class="p">:{</span><span class="w">  
+            </span><span class="s2">"foto"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Imagem"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"img"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1600"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"900"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Foto.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"logo"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Logo"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"img"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1030"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"470"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Logo.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"texto_1"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                  </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"60"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Regular"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Texto de Abertura"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#50747B"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_1.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"texto_2"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                  </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"120"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Semibold"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Título"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_2.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"texto_3"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                  </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"73"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Semibold"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="s2">"kind"</span><span class="p">:</span><span class="s2">"caption"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Descrição"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"align"</span><span class="p">:</span><span class="s2">"West"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"990"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"265"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_3.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"texto_4"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                  </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"130"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Bold"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="s2">"kind"</span><span class="p">:</span><span class="s2">"caption"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Texto de encerramento"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"align"</span><span class="p">:</span><span class="s2">"center"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1026"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"410"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_4.png"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"main_frame"</span><span class="p">:</span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"preview_frames"</span><span class="p">:[</span><span class="w">  
+            </span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"154"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"238"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"462"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"574"</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="s2">"main_composition"</span><span class="p">:</span><span class="s2">"Template_Doencas"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"fonts"</span><span class="p">:</span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aepx_file_name"</span><span class="p">:</span><span class="s2">"template.aepx"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aepx_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aepx_file_size"</span><span class="p">:</span><span class="s2">"644838"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-29T14:26:32.880Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-29T14:26:32.880Z"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">  
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">41</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"First Template"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"assets"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"Abertura_PreRender.mp4"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"config_fields"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Template_Doencas"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"duration"</span><span class="p">:</span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"variables"</span><span class="p">:{</span><span class="w">  
+            </span><span class="s2">"foto"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Imagem"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"img"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1600"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"900"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Foto.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"logo"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Logo"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"img"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1030"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"470"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Logo.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"texto_1"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                  </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"60"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Regular"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Texto de Abertura"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#50747B"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_1.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"texto_2"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                  </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"120"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Semibold"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Título"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_2.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"texto_3"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                  </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"73"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Semibold"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="s2">"kind"</span><span class="p">:</span><span class="s2">"caption"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Descrição"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"align"</span><span class="p">:</span><span class="s2">"West"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"990"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"265"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_3.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"texto_4"</span><span class="p">:{</span><span class="w">  
+               </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                  </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"130"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Bold"</span><span class="w">
+               </span><span class="p">},</span><span class="w">
+               </span><span class="s2">"kind"</span><span class="p">:</span><span class="s2">"caption"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Texto de encerramento"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"align"</span><span class="p">:</span><span class="s2">"center"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1026"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"410"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_4.png"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="s2">"main_frame"</span><span class="p">:</span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"preview_frames"</span><span class="p">:[</span><span class="w">  
+            </span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"154"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"238"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"462"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"574"</span><span class="w">
+         </span><span class="p">],</span><span class="w">
+         </span><span class="s2">"main_composition"</span><span class="p">:</span><span class="s2">"Template_Doencas"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"fonts"</span><span class="p">:</span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aepx_file_name"</span><span class="p">:</span><span class="s2">"template.aepx"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aepx_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aepx_file_size"</span><span class="p">:</span><span class="s2">"644838"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-29T14:26:05.371Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-29T14:26:05.371Z"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+<p>Este endpoint retorna todos os templates.</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>GET https://api.chiligumvideos.com/api/templates</code></p>
+
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
+<h2 id='receber-um-template-especifico'>Receber um Template específico</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">template</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/templates/&lt;ID&gt;"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">template</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/templates/&lt;ID&gt;"</span>
+  -H <span class="s2">"token: seutoken"</span>
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura de JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">  
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Second Template"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assets"</span><span class="p">:{</span><span class="w">  
+       </span><span class="s2">"Abertura_PreRender.mp4"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"config_fields"</span><span class="p">:{</span><span class="w">  
+       </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Template_Doencas"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"duration"</span><span class="p">:</span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"variables"</span><span class="p">:{</span><span class="w">  
+          </span><span class="s2">"foto"</span><span class="p">:{</span><span class="w">  
+             </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Imagem"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"img"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1600"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"900"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Foto.png"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"logo"</span><span class="p">:{</span><span class="w">  
+             </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Logo"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"img"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1030"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"470"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Logo.png"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"texto_1"</span><span class="p">:{</span><span class="w">  
+             </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"60"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Regular"</span><span class="w">
+             </span><span class="p">},</span><span class="w">
+             </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Texto de Abertura"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#50747B"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_1.png"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"texto_2"</span><span class="p">:{</span><span class="w">  
+             </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"120"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Semibold"</span><span class="w">
+             </span><span class="p">},</span><span class="w">
+             </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Título"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_2.png"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"texto_3"</span><span class="p">:{</span><span class="w">  
+             </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"73"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Semibold"</span><span class="w">
+             </span><span class="p">},</span><span class="w">
+             </span><span class="s2">"kind"</span><span class="p">:</span><span class="s2">"caption"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Descrição"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"align"</span><span class="p">:</span><span class="s2">"West"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"990"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"265"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_3.png"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"texto_4"</span><span class="p">:{</span><span class="w">  
+             </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"130"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Bold"</span><span class="w">
+             </span><span class="p">},</span><span class="w">
+             </span><span class="s2">"kind"</span><span class="p">:</span><span class="s2">"caption"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Texto de encerramento"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"align"</span><span class="p">:</span><span class="s2">"center"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1026"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"410"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_4.png"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="s2">"main_frame"</span><span class="p">:</span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"preview_frames"</span><span class="p">:[</span><span class="w">  
+          </span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"154"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"238"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"462"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"574"</span><span class="w">
+       </span><span class="p">],</span><span class="w">
+       </span><span class="s2">"main_composition"</span><span class="p">:</span><span class="s2">"Template_Doencas"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"fonts"</span><span class="p">:</span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"aepx_file_name"</span><span class="p">:</span><span class="s2">"template.aepx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"aepx_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"aepx_file_size"</span><span class="p">:</span><span class="s2">"644838"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-29T14:26:32.880Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-29T14:26:32.880Z"</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Este endpoint retorna um template através de seu ID.</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>GET https://api.chiligumvideos.com/api/templates/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID do template que deseja retornar</td>
+</tr>
+</tbody></table>
+<h2 id='criar-um-template'>Criar um Template</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/templates"</span> <span class="se">\</span>
+-H <span class="s2">"token: seutoken"</span> <span class="se">\ </span>  
+-F <span class="s2">"[template]name=nome_do_template"</span> <span class="se">\</span>
+-F <span class="s2">"[template]assets=@/Users/Desktop/logo.mp4"</span> <span class="se">\</span>
+-F <span class="s2">"[template]font=@Users/Desktop/font.ttf"</span>
+-F <span class="s2">"[template]config_json=@/Users/Desktop/config_json"</span> <span class="se">\</span>
+-F <span class="s2">"[template]aepx=@Users/Desktop/template.aepx"</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="nb">require</span> <span class="s1">'httmultiparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">template</span> <span class="o">=</span> <span class="no">HTTMultiParty</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="s1">'https://api.chiligumvideos.com/api/template'</span><span class="p">,</span> <span class="ss">:query</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="ss">template: </span><span class="p">{</span> 
+      <span class="ss">name: </span><span class="s1">'Second Template'</span><span class="p">,</span>
+      <span class="ss">assets: </span><span class="p">{</span><span class="s1">'Abertura_PreRender.mp4'</span><span class="p">:</span> <span class="n">assets</span><span class="p">},</span>
+      <span class="ss">font: </span><span class="p">{</span><span class="s1">'font_1'</span><span class="p">:</span> <span class="s1">'path-of_font_file.ttf'</span><span class="p">}</span>
+      <span class="ss">config_fields: </span><span class="n">arquivo_json</span><span class="p">,</span>
+      <span class="ss">aepx: </span><span class="no">File</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'/home/lean/Downloads/template.aepx'</span><span class="p">)</span>
+    <span class="p">}},</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">  
+     </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">43</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Second Template"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"assets"</span><span class="p">:{</span><span class="w">  
+        </span><span class="s2">"Abertura_PreRender.mp4"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"config_fields"</span><span class="p">:{</span><span class="w">  
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Template_Doencas"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"duration"</span><span class="p">:</span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"main_composition"</span><span class="p">:</span><span class="s2">"Template_Doencas"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"preview_frames"</span><span class="p">:[</span><span class="w">  
+           </span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"154"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"238"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"462"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"574"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"main_frame"</span><span class="p">:</span><span class="s2">"35"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"variables"</span><span class="p">:{</span><span class="w">  
+           </span><span class="s2">"foto"</span><span class="p">:{</span><span class="w">  
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Imagem"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"img"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Foto.png"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1600"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"900"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="s2">"logo"</span><span class="p">:{</span><span class="w">  
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Logo"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"img"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Logo.png"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1030"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"470"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="s2">"texto_1"</span><span class="p">:{</span><span class="w">  
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Texto de Abertura"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_1.png"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                 </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Regular"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"60"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#50747B"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="s2">"texto_2"</span><span class="p">:{</span><span class="w">  
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Título"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_2.png"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                 </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Semibold"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"120"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="s2">"texto_3"</span><span class="p">:{</span><span class="w">  
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Descrição"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_3.png"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                 </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Semibold"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"73"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"kind"</span><span class="p">:</span><span class="s2">"caption"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"990"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"265"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"align"</span><span class="p">:</span><span class="s2">"West"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="s2">"texto_4"</span><span class="p">:{</span><span class="w">  
+              </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Texto de encerramento"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"output"</span><span class="p">:</span><span class="s2">"Texto_4.png"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"font"</span><span class="p">:{</span><span class="w">  
+                 </span><span class="s2">"family"</span><span class="p">:</span><span class="s2">"MyriadPro-Bold"</span><span class="p">,</span><span class="w">
+                 </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"130"</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="s2">"color"</span><span class="p">:</span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"kind"</span><span class="p">:</span><span class="s2">"caption"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"width"</span><span class="p">:</span><span class="s2">"1026"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"height"</span><span class="p">:</span><span class="s2">"410"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"align"</span><span class="p">:</span><span class="s2">"center"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"fonts"</span><span class="p">:{</span><span class="w">  
+        </span><span class="s2">"font_1"</span><span class="p">:</span><span class="s2">"Effra_Std_Rg.ttf"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"aepx_file_name"</span><span class="p">:</span><span class="s2">"template.aepx"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"aepx_content_type"</span><span class="p">:</span><span class="s2">"application/octet-stream"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"aepx_file_size"</span><span class="p">:</span><span class="s2">"644838"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-29T17:54:19.932Z"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-29T17:54:19.932Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-15'>HTTP Request</h3>
+<p><code>POST https://api.chiligumvideos.com/api/templates</code></p>
+<h3 id='parametros-do-post-4'>Parametrôs do post</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>nome do template</td>
+</tr>
+<tr>
+<td>assets</td>
+<td>Arquivos de Assets estáticos criados no edpoint de Assets</td>
+</tr>
+<tr>
+<td>fonts</td>
+<td>Arquivos de fontes utilizadas no template</td>
+</tr>
+<tr>
+<td>config_fields</td>
+<td>Campos dinâmcos do template em formato json</td>
+</tr>
+<tr>
+<td>aepx</td>
+<td>Arquivo aepx criado no AfterEffects</td>
+</tr>
+</tbody></table>
+<h2 id='deletar-template'>Deletar Template</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">template</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/templates/&lt;ID&gt;"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">template</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.chiligumvideos.com/api/templates/&lt;ID&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"token: seutoken"</span>
+
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"deleted"</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-16'>HTTP Request</h3>
+<p><code>DELETE https://api.chiligumvideos.com/api/templates/&lt;ID&gt;</code></p>
+<h3 id='parametros-do-delete-4'>Parametrôs do delete</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID do template a ser deletado</td>
+</tr>
+</tbody></table>
+<h1 id='videos'>Videos</h1><h2 id='overview-5'>Overview</h2>
+<p>Todos os vídeos podem ser persistidos através dos próximos endpoints.</p>
+<h2 id='receber-todos-os-videos-criados-pertencentes-ao-dono-do-token-informado-junto-a-requisicao'>Receber todos os vídeos criados pertencentes ao dono do token informado junto a requisição.</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">videos</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/videos"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">videos</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/videos"</span>
+  -H <span class="s2">"token: seutoken"</span>
+</code></pre>
+<blockquote>
+<p>O comando acima retorna um JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">  
+   </span><span class="p">{</span><span class="w">  
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Video2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"thumbnail_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file_hash"</span><span class="p">:</span><span class="s2">"7f43e7c8d4c903e0f2578467"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"resolution"</span><span class="p">:</span><span class="mi">1080</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"template_id"</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"track_id"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"logo"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"texto_1"</span><span class="p">:</span><span class="s2">"Texto de Abertura"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"texto_2"</span><span class="p">:</span><span class="s2">"Titulo"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"texto_3"</span><span class="p">:</span><span class="s2">"Descricao"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"texto_4"</span><span class="p">:</span><span class="s2">"Texto de encerramento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-29T19:16:06.206Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-29T19:16:06.206Z"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">  
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Video1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"thumbnail_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"file_hash"</span><span class="p">:</span><span class="s2">"1ed2b7899d503535923417ea"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"resolution"</span><span class="p">:</span><span class="mi">1080</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"template_id"</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"track_id"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"logo"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"texto_1"</span><span class="p">:</span><span class="s2">"Texto de Abertura"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"texto_2"</span><span class="p">:</span><span class="s2">"Titulo"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"texto_3"</span><span class="p">:</span><span class="s2">"Descricao"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"texto_4"</span><span class="p">:</span><span class="s2">"Texto de encerramento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-29T19:15:33.821Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-29T19:15:33.821Z"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>Este endpoint retorna todos os videos.</p>
+<h3 id='http-request-17'>HTTP Request</h3>
+<p><code>GET https://api.chiligumvideos.com/api/videos</code></p>
+
+<aside class="notice">
+Não esqueça de informar o token no header
+</aside>
+<h2 id='receber-um-video-especifico'>Receber um Video específico</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">video</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/videos/&lt;ID&gt;"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">video</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/videos/&lt;ID&gt;"</span>
+  -H <span class="s2">"token: seutoken"</span>
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura de JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">  
+     </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Video1"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"thumbnail_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"file_hash"</span><span class="p">:</span><span class="s2">"1ed2b7899d503535923417ea"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"resolution"</span><span class="p">:</span><span class="mi">1080</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"template_id"</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"track_id"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">  
+        </span><span class="s2">"logo"</span><span class="p">:</span><span class="s2">"meulogo.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"texto_1"</span><span class="p">:</span><span class="s2">"Texto de Abertura"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"texto_2"</span><span class="p">:</span><span class="s2">"Titulo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"texto_3"</span><span class="p">:</span><span class="s2">"Descricao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"texto_4"</span><span class="p">:</span><span class="s2">"Texto de encerramento"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-29T19:15:33.821Z"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-29T19:15:33.821Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Este endpoint retorna um video através de seu ID.</p>
+<h3 id='http-request-18'>HTTP Request</h3>
+<p><code>GET https://api.chiligumvideos.com/api/videos/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID do video que deseja retornar</td>
+</tr>
+</tbody></table>
+<h2 id='criar-um-video'>Criar um video</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.chiligumvideos.com/api/videos"</span> <span class="se">\</span>
+-H <span class="s2">"token: seutoken"</span> <span class="se">\ </span>  
+-F <span class="s2">"[video]name=Video1"</span> <span class="se">\</span>
+-F <span class="s2">"[video]fonts=font1.ttf"</span> <span class="se">\</span>
+-F <span class="s2">"[video]resolution=1080"</span> <span class="se">\</span>
+-F <span class="s2">"[video]track_id=1"</span>, <span class="se">\</span>
+-F <span class="s2">"[video]data=fields_json"</span> <span class="se">\</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="nb">require</span> <span class="s1">'httmultiparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="vi">@video</span> <span class="o">=</span> <span class="no">HTTMultiParty</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="s1">'https://api.chiligumvideos.com/api/videos/api/videos'</span><span class="p">,</span> <span class="ss">:query</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="ss">video: </span><span class="p">{</span> 
+   <span class="ss">name: </span><span class="s1">'Video1'</span><span class="p">,</span>
+    <span class="ss">resolution: </span><span class="mi">1080</span><span class="p">,</span>
+    <span class="ss">track_id: </span><span class="mi">18</span><span class="p">,</span>
+    <span class="ss">template_id: </span><span class="mi">42</span><span class="p">,</span>
+    <span class="ss">data: </span><span class="p">{</span><span class="s1">'texto_1'</span><span class="p">:</span> <span class="s1">'Texto de Abertura'</span><span class="p">,</span> <span class="s1">'texto_2'</span><span class="p">:</span> <span class="s1">'Titulo'</span><span class="p">,</span> <span class="s1">'texto_3'</span><span class="p">:</span> <span class="s1">'Descricao'</span><span class="p">,</span> <span class="s1">'texto_4'</span><span class="p">:</span> <span class="s1">'Texto de encerramento'</span><span class="p">,</span> <span class="s1">'logo'</span><span class="p">:</span> <span class="vi">@foto</span> <span class="p">}</span>
+  <span class="p">}},</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+
+
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">  
+     </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Video1"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"thumbnail_url"</span><span class="p">:</span><span class="s2">"thumb.jpg"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"file_hash"</span><span class="p">:</span><span class="s2">"1ed2b7899d503535923417ea"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"resolution"</span><span class="p">:</span><span class="mi">1080</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"template_id"</span><span class="p">:</span><span class="mi">42</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"track_id"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"data"</span><span class="p">:{</span><span class="w">  
+        </span><span class="s2">"texto_1"</span><span class="p">:</span><span class="s2">"Texto de Abertura"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"texto_2"</span><span class="p">:</span><span class="s2">"Titulo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"texto_3"</span><span class="p">:</span><span class="s2">"Descricao"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"texto_4"</span><span class="p">:</span><span class="s2">"Texto de encerramento"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"logo"</span><span class="p">:</span><span class="s2">"foto.jpg"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-09-29T19:15:33.821Z"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2017-09-29T19:15:33.821Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-19'>HTTP Request</h3>
+<p><code>POST https://api.chiligumvideos.com/api/videos</code></p>
+<h3 id='parametros-do-post-5'>Parametrôs do post</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>nome do video</td>
+</tr>
+<tr>
+<td>resolution</td>
+<td>resolução de exibição do vídeo a ser criado</td>
+</tr>
+<tr>
+<td>track_id</td>
+<td>id da trilha a ser transmitida junto ao vídeo</td>
+</tr>
+<tr>
+<td>template_id</td>
+<td>template utilizado para criação do vídeo</td>
+</tr>
+<tr>
+<td>data</td>
+<td>dados de preenchimento dos campos disponíveis no template</td>
+</tr>
+</tbody></table>
+<h2 id='deletar-um-video'>Deletar um video</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'httparty'</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span> 
+  <span class="s1">'token'</span> <span class="o">=&gt;</span> <span class="s1">'seutoken'</span><span class="p">,</span>
+  <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'multipart/form-data'</span>
+<span class="p">}</span>
+
+<span class="n">video</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"https://api.chiligumvideos.com/api/videos/&lt;ID&gt;"</span><span class="p">,</span> <span class="ss">headers: </span><span class="n">headers</span><span class="p">)</span>
+<span class="n">video</span><span class="p">.</span><span class="nf">body</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X DELETE <span class="se">\</span>
+<span class="s2">"https://api.chiligumvideos.com/api/videos/&lt;ID&gt;"</span> <span class="se">\</span>
+-H <span class="s2">"token: seutoken"</span>
+
+</code></pre>
+<blockquote>
+<p>O comando acima deve retornar uma estrutura JSON:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"msg"</span><span class="p">:</span><span class="s2">"deleted"</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-20'>HTTP Request</h3>
+<p><code>DELETE https://api.chiligumvideos.com/api/videos/&lt;ID&gt;</code></p>
+<h3 id='parametros-do-delete-5'>Parametrôs do delete</h3>
+<table><thead>
+<tr>
+<th>Parâmetro</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID do video a ser deletado</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
@@ -445,35 +1657,35 @@ Remember — a happy kitten is an authenticated kitten!
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request sucks</td>
+<td>Bad Request -- Your request sucks.</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong</td>
+<td>Unauthorized -- Your API key is wrong.</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found</td>
+<td>Not Found -- The specified kitten could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method</td>
+<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
 </tr>
 <tr>
 <td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
 </tr>
 <tr>
 <td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers</td>
+<td>Gone -- The kitten requested has been removed from our servers.</td>
 </tr>
 <tr>
 <td>418</td>
-<td>I&#39;m a teapot</td>
+<td>I&#39;m a teapot.</td>
 </tr>
 <tr>
 <td>429</td>
@@ -494,8 +1706,6 @@ Remember — a happy kitten is an authenticated kitten!
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
