@@ -1055,7 +1055,7 @@ curl "https://api.chiligumvideos.com/api/templates" \
 -H "token: seutoken" \   
 -F "[template]name=nome_do_template" \
 -F "[template]assets=@/Users/Desktop/logo.mp4" \
--F "[template]font=@Users/Desktop/font.ttf"
+-F "[template]fonts=@Users/Desktop/font.ttf"
 -F "[template]config_json=@/Users/Desktop/config_json" \
 -F "[template]aepx=@Users/Desktop/template.aepx"
 ```
@@ -1073,7 +1073,7 @@ template = HTTMultiParty.post('https://api.chiligumvideos.com/api/template', :qu
   template: { 
       name: 'Second Template',
       assets: {'Abertura_PreRender.mp4': assets},
-      font: {'font_1': 'path-of_font_file.ttf'}
+      fonts: {'font_1': 'path-of_font_file.ttf'}
       config_fields: arquivo_json,
       aepx: File.new('/home/lean/Downloads/template.aepx')
     }}, headers: headers)
