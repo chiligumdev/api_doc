@@ -31,7 +31,7 @@ Nossa API é composta por **templates**, **tracks**, **assets**, **fonts** e **v
 **Assets** responsável por armazernar todos vídeos e imagens que são usados no template como assets estáticos e nos vídeos como um logo ou foto enviada por um usuário.
 
 
-**Fonts** caso o template tenha alguma font customizada você deve fazer o upload delas neste end-point e informar o link 
+**Fonts** caso o template tenha alguma font customizada você deve fazer o upload delas neste endpoint e informar o link 
 dentro do end point de templates.
 
 
@@ -103,7 +103,7 @@ fonts.body
 curl "https://api.chiligumvideos.com/api/fonts"
   -H "token: seutoken"
 ```
-> O comando acima retorna um JSON:
+> O comando acima retorna um JSON com todas as fontes disponíveis persistidas pelo usuário em posse do token informado no header da requisição:
 
 ```json
 [  
@@ -160,7 +160,7 @@ curl "https://api.chiligumvideos.com/api/fonts/<ID>"
   -H "token: seutoken"
 ```
 
-> O comando acima deve retornar uma estrutura de JSON:
+> O comando acima deve retornar uma estrutura JSON com informações sobre o registro enviado na requisição com o seguinte formato:
 
 ```json
 {  
@@ -214,7 +214,7 @@ font = HTTMultiParty.post('https://api.chiligumvideos.com/api/fonts', :query => 
 font.body
 ```
 
-> O comando acima deve retornar uma estrutura JSON:
+> O comando acima deve retornar uma estrutura JSON com informações sobre a fonte que acaba de ser inserida pela API caso obtenha sucesso:
 
 ```json
  {  
@@ -262,10 +262,22 @@ curl -X DELETE \
 
 ```
 
-> O comando acima deve retornar uma estrutura JSON:
+> O comando acima deve retornar uma estrutura JSON com informações sobre o registro deletado, contendo também a informação de msg com valor de "deleted" informando o sucesso da requisição:
 
 ```json
-{"msg":"deleted"}
+{  
+   "font":{  
+      "id":21,
+      "name":"Fonte extra",
+      "url":"https://s3.amazonaws.com/apiteaser/fonts/d1dd44a427a1a3eb34b406b1c85ea56dedee4be1.ttf",
+      "font_file_name":"RackMultipart20170830-20056-11ep8pj.ttf",
+      "font_content_type":"application/font-sfnt",
+      "metadata":"Larger Mime",
+      "created_at":"2017-08-30T13:15:23.743Z",
+      "updated_at":"2017-08-30T13:15:23.743Z"
+    },
+   "msg":"deleted"
+}
 ```
 
 ### HTTP Request
@@ -283,7 +295,7 @@ ID | ID da fonte a ser deletado
 
 ## Overview
 
-Todos os assets (imagens e vídeos) utilizados dentro do template ou como input de vídeos devem ser feitos o upload através deste end-point. No momento não suportamos assets de sites ou sistemas de terceiros.
+Todos os assets (imagens e vídeos) utilizados dentro do template ou como input de vídeos devem ser feitos o upload através deste endpoint. No momento não suportamos assets de sites ou sistemas de terceiros.
 
 ## Receber todos Assets
 
@@ -1187,7 +1199,7 @@ template = HTTMultiParty.post('https://api.chiligumvideos.com/api/template', :qu
 Parâmetro | Descrição
 --------- | -----------
 name            | nome do template
-assets          | Arquivos de Assets estáticos criados no edpoint de Assets
+assets          | Arquivos de Assets estáticos criados no endpoint de Assets
 fonts           | Arquivos de fontes utilizadas no template
 config_fields   | Campos dinâmcos do template em formato json
 aepx            | Arquivo aepx criado no AfterEffects
