@@ -316,7 +316,8 @@ curl "https://api.chiligumvideos.com/api/assets"
   -H "token: seutoken"
 ```
 
-> O comando acima retorna um JSON:
+> O comando acima retorna um JSON com todos os assets disponíveis persistidos pelo usuário em posse do token informado no header da requisição:
+
 
 ```json
 [
@@ -346,7 +347,7 @@ curl "https://api.chiligumvideos.com/api/assets"
 
 ```
 
-Este endpoint retorna todas os assets.
+Este endpoint retorna todos os assets.
 
 
 ### HTTP Request
@@ -377,7 +378,7 @@ curl "https://api.chiligumvideos.com/api/assets/<ID>"
   -H "token: seutoken"
 ```
 
-> O comando acima deve retornar uma estrutura de JSON:
+> O comando acima deve retornar uma estrutura JSON com informações sobre o registro enviado na requisição com o seguinte formato:
 
 ```json
   {
@@ -432,7 +433,7 @@ asset = HTTMultiParty.post('https://api.chiligumvideos.com/api/assets', :query =
 asset.body
 ```
 
-> O comando acima deve retornar uma estrutura JSON:
+> O comando acima deve retornar uma estrutura JSON com informações sobre o asset que acaba de ser persistido pela API caso obtenha sucesso:
 
 ```json
   {
@@ -504,10 +505,10 @@ ID | ID do asset a ser deletado
 
 ## Overview
 
-Todos as faixas de som utilizadas no vídeo devem ser feitas o upload neste endpoint. Os formatos de mime-type válidos são
+Todos as faixas de som utilizadas no vídeo devem ser persistidas neste endpoint. Os formatos de mime-type válidos são
 **audio/mpeg** e **audio/mp3**. No momento não suportamos faixas de sites ou sistemas de terceiros.
 
-## Receber todos Assets
+## Receber todas Tracks
 
 ```ruby
 require 'httparty'
@@ -526,7 +527,7 @@ curl "https://api.chiligumvideos.com/api/tracks"
   -H "token: seutoken"
 ```
 
-> O comando acima retorna um JSON:
+> O comando acima retorna um JSON com todas as tracks disponíveis persistidos pelo usuário em posse do token informado no header da requisição:
 
 ```json
 [
@@ -564,7 +565,7 @@ Este endpoint retorna todas as tracks.
 Não esqueça de informar o token no header
 </aside>
 
-## Receber um Asset específico
+## Receber uma Track específica
 
 ```ruby
 require 'httparty'
@@ -574,16 +575,16 @@ headers = {
   'Content-Type' => 'multipart/form-data'
 }
 
-asset = HTTParty.get("https://api.chiligumvideos.com/api/assets/<ID>", headers: headers)
-asset.body
+track = HTTParty.get("https://api.chiligumvideos.com/api/tracks/<ID>", headers: headers)
+track.body
 ```
 
 ```shell
-curl "https://api.chiligumvideos.com/api/assets/<ID>"
+curl "https://api.chiligumvideos.com/api/tracks/<ID>"
   -H "token: seutoken"
 ```
 
-> O comando acima deve retornar uma estrutura de JSON:
+> O comando acima deve retornar uma estrutura JSON com informações sobre o registro enviado na requisição com o seguinte formato:
 
 ```json
   {
@@ -599,26 +600,26 @@ curl "https://api.chiligumvideos.com/api/assets/<ID>"
   }
 ```
 
-Este endpoint retorna um asset através de seu ID.
+Este endpoint retorna uma track através de seu ID.
 
 ### HTTP Request
 
-`GET https://api.chiligumvideos.com/api/assets/<ID>`
+`GET https://api.chiligumvideos.com/api/tracks/<ID>`
 
 ### URL Parameters
 
 Parâmetro | Descrição
 --------- | -----------
-ID | ID do asset que deseja retornar
+ID | ID da track que deseja retornar
 
 
-## Criar um Asset
+## Criar uma Track
 
 ```shell
-curl "https://api.chiligumvideos.com/api/assets" \
+curl "https://api.chiligumvideos.com/api/tracks" \
 -H "token: seutoken" \   
--F "[asset]name=logo" \
--F "[asset]attachment=@/Users/Desktop/logo.png"
+-F "[track]name=track" \
+-F "[track]audio=@/Users/Desktop/logo.png"
 ```
 
 ```ruby
@@ -630,25 +631,24 @@ headers = {
   'Content-Type' => 'multipart/form-data'
 }
 
-asset = HTTMultiParty.post('https://api.chiligumvideos.com/api/assets', :query => {
-  asset: { 
-   name: 'logo',
-   attachment: File.new('/Users/Desktop/logo.png')
+track = HTTMultiParty.post('https://api.chiligumvideos.com/api/tracks', :query => {
+  track: { 
+   name: 'track',
+   audio: File.new('/Users/Desktop/track.mp3')
   }}, headers: headers)
-asset.body
+track.body
 ```
 
-> O comando acima deve retornar uma estrutura JSON:
+> O comando acima deve retornar uma estrutura JSON com informações sobre a track que acaba de ser persistida pela API caso obtenha sucesso:
 
 ```json
   {
     "id":3,
-    "name":"logo",
-    "url":"https://s3.amazonaws.com/teaserapi/assets/c8efe50d7b34615ce997a732fdf0da06954bd962.png",
+    "name":"track",
+    "url":"https://s3.amazonaws.com/teaserapi/assets/c8efe50d7b34615ce997a732fdf0da06954bd962.mp3",
     "hash_name":"c8efe50d7b34615ce997a732fdf0da06954bd962.png",
-    "attachment_file_name":"logo.png",
-    "attachment_content_type":"application/octet-stream",
-    "attachment_file_size":"32013",
+    "audio_file_name": "audio_teste.mp3",
+    "audio_file_size": "3064832",
     "created_at":"2017-09-12T03:47:08.078Z",
     "updated_at":"2017-09-12T03:47:08.078Z"
   }
@@ -656,18 +656,18 @@ asset.body
 
 ### HTTP Request
 
-`POST https://api.chiligumvideos.com/api/assets`
+`POST https://api.chiligumvideos.com/api/tracks`
 
 
 ### Parametrôs do post
 
 Parâmetro | Descrição
 --------- | -----------
-name | nome do asset
-attachment | arquivo do post
+name | nome da track
+audio | arquivo do post
 
 
-## Deletar um Asset
+## Deletar uma Track
 
 ```ruby
 require 'httparty'
@@ -677,13 +677,13 @@ headers = {
   'Content-Type' => 'multipart/form-data'
 }
 
-asset = HTTParty.delete("https://api.chiligumvideos.com/api/assets/<ID>", headers: headers)
-asset.body
+track = HTTParty.delete("https://api.chiligumvideos.com/api/tracks/<ID>", headers: headers)
+track.body
 ```
 
 ```shell
 curl -X DELETE \
-"https://api.chiligumvideos.com/api/assets/<ID>" \
+"https://api.chiligumvideos.com/api/tracks/<ID>" \
 -H "token: seutoken"
 
 ```
@@ -696,13 +696,13 @@ curl -X DELETE \
 
 ### HTTP Request
 
-`DELETE https://api.chiligumvideos.com/api/assets/<ID>`
+`DELETE https://api.chiligumvideos.com/api/tracks/<ID>`
 
 ### Parametrôs do delete
 
 Parâmetro | Descrição
 --------- | -----------
-ID | ID do asset a ser deletado
+ID | ID da track a ser deletada
 
 
 # Templates
