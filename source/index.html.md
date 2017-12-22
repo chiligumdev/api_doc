@@ -1274,9 +1274,8 @@ curl "https://api.chiligumvideos.com/api/videos"
    {  
       "id":2,
       "name":"Video2",
-      "thumbnail_url":null,
-      "file_hash":"7f43e7c8d4c903e0f2578467",
-      "resolution":1080,
+      "url":"https://path_to_server/video_file_name.mp4"
+      "thumbnail_url": "https://path_image/uploaded_image_from_thumbnail.png",
       "template_id":42,
       "track_id":18,
       "data":{  
@@ -1292,9 +1291,8 @@ curl "https://api.chiligumvideos.com/api/videos"
    {  
       "id":1,
       "name":"Video1",
-      "thumbnail_url":null,
-      "file_hash":"1ed2b7899d503535923417ea",
-      "resolution":1080,
+      "url":"https://path_to_server/video_file_name.mp4"
+      "thumbnail_url": "https://path_image/uploaded_image_from_thumbnail.png",
       "template_id":42,
       "track_id":18,
       "data":{  
@@ -1345,22 +1343,21 @@ curl "https://api.chiligumvideos.com/api/videos/<ID>"
 
 ```json
   {  
-     "id":1,
-     "name":"Video1",
-     "thumbnail_url":null,
-     "file_hash":"1ed2b7899d503535923417ea",
-     "resolution":1080,
-     "template_id":42,
-     "track_id":18,
-     "data":{  
-        "logo":"meulogo.jpg",
-        "texto_1":"Texto de Abertura",
-        "texto_2":"Titulo",
-        "texto_3":"Descricao",
-        "texto_4":"Texto de encerramento"
-     },
-     "created_at":"2017-09-29T19:15:33.821Z",
-     "updated_at":"2017-09-29T19:15:33.821Z"
+    "id":1,
+    "name":"Video1",
+    "url":"https://path_to_server/video_file_name.mp4"
+    "thumbnail_url": "https://path_image/uploaded_image_from_thumbnail.png",
+    "template_id":42,
+    "track_id":18,
+    "data":{  
+       "logo":"",
+       "texto_1":"Texto de Abertura",
+       "texto_2":"Titulo",
+       "texto_3":"Descricao",
+       "texto_4":"Texto de encerramento"
+    },
+    "created_at":"2017-09-29T19:15:33.821Z",
+    "updated_at":"2017-09-29T19:15:33.821Z"
   }
 ```
 
@@ -1385,10 +1382,9 @@ ID | ID do video que deseja retornar
 curl "https://api.chiligumvideos.com/api/videos" \
 -H "token: seutoken" \   
 -F "[video]name=Video1" \
--F "[video]fonts=font1.ttf" \
--F "[video]resolution=1080" \
--F "[video]track_id=1", \
--F "[video]data=fields_json" \
+-F "[video]track_id=18", \
+-F "[video]template_id=42", \
+-F "[video]data=json_fields" \
 ```
 
 ```ruby
@@ -1403,7 +1399,6 @@ headers = {
 @video = HTTMultiParty.post('https://api.chiligumvideos.com/api/videos/api/videos', :query => {
   video: { 
    name: 'Video1',
-    resolution: 1080,
     track_id: 18,
     template_id: 42,
     data: {'texto_1': 'Texto de Abertura', 'texto_2': 'Titulo', 'texto_3': 'Descricao', 'texto_4': 'Texto de encerramento', 'logo': @foto }
@@ -1416,22 +1411,21 @@ headers = {
 
 ```json
   {  
-     "id":1,
-     "name":"Video1",
-     "thumbnail_url":"thumb.jpg",
-     "file_hash":"1ed2b7899d503535923417ea",
-     "resolution":1080,
-     "template_id":42,
-     "track_id":18,
-     "data":{  
-        "texto_1":"Texto de Abertura",
-        "texto_2":"Titulo",
-        "texto_3":"Descricao",
-        "texto_4":"Texto de encerramento",
-        "logo":"foto.jpg"
-     },
-     "created_at":"2017-09-29T19:15:33.821Z",
-     "updated_at":"2017-09-29T19:15:33.821Z"
+    "id":1,
+    "name":"Video1",
+    "url":"https://path_to_server/video_file_name.mp4"
+    "thumbnail_url": "https://path_image/uploaded_image_from_thumbnail.png",
+    "template_id":42,
+    "track_id":18,
+    "data":{  
+      "logo":"",
+      "texto_1":"Texto de Abertura",
+      "texto_2":"Titulo",
+      "texto_3":"Descricao",
+      "texto_4":"Texto de encerramento"
+    },
+    "created_at":"2017-09-29T19:15:33.821Z",
+    "updated_at":"2017-09-29T19:15:33.821Z"
   }
 ```
 
@@ -1445,7 +1439,6 @@ headers = {
 Parâmetro | Descrição
 --------- | -----------
 name | nome do video
-resolution  | resolução de exibição do vídeo a ser criado
 track_id    | id da trilha a ser transmitida junto ao vídeo
 template_id | template utilizado para criação do vídeo
 data        | dados de preenchimento dos campos disponíveis no template
