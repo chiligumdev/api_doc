@@ -92,8 +92,8 @@ Todas as fontes utilizadas para personalizar o seu vídeo devem ser persistidas 
 require 'httparty'
 
 headers = {
-  'token' = 'seutoken',
-  'Content-Type' = 'multipart/form-data'
+  'token' => 'seutoken',
+  'Content-Type' => 'multipart/form-data'
 }
 
 fonts = HTTParty.get("https://api.chiligumvideos.com/api/fonts", headers: headers)
