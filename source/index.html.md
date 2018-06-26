@@ -1480,3 +1480,50 @@ curl -X DELETE \
 Parâmetro | Descrição
 --------- | -----------
 ID | ID do video a ser deletado
+
+# Player de vídeos
+
+## Overview
+
+ Todos os vídeos podem ser persistidos no nosso player de vídeos através dos próximos endpoints.
+
+## Enviar um vídeo ao player
+
+```shell
+curl "http://player.chiligumvideos.com/api/videos" \
+-H "token: 67016615783f287c25cc6249" \
+-F "[video]name=teste-shell" \
+-F "[video]data=teste.mp4" \
+```
+
+```ruby
+require 'rest-client'
+
+headers = {token: 'seutoken'}
+params = {
+    video: {
+          name: 'nomevideo',
+          data: File.new('seuvideo.mp4', 'rb')
+  }
+}
+
+RestClient.post('http://player.chiligumvideos.com/api/videos', params, headers)
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+  
+```
+
+### HTTP Request
+
+`POST http://player.chiligumvideos.com/api/videos`
+
+
+### Parametrôs do post
+
+Parâmetro | Descrição
+--------- | -----------
+name    | nome do video
+data    | arquivo do video em .mp4
