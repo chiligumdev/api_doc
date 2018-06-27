@@ -1487,6 +1487,14 @@ ID | ID do video a ser deletado
 
  Todos os vídeos podem ser persistidos no nosso player de vídeos através dos próximos endpoints.
 
+<aside class="notice">
+  Não esqueça de informar o token no header, o token usado no player é diferente do token usado na API.
+</aside>
+
+Para ter acesso à API do nosso player você deve criar uma conta em [nosso sistema](http://player.chiligumvideos.com/) e acessar o menu de Credentials.
+
+Após criar a conta você deve entrar em contato conosco para mudarmos o status da conta para enabled.
+
 ## Receber todos os vídeos enviados
 
  Este endpoint retorna todos os vídeos no player pertencentes ao usuário do token
@@ -1509,32 +1517,56 @@ videos.body
 
 ```json
 [
-  { 
-    "id":162,
-    "name":"Samba Rock",
-    "token":"dff4f6b549",
+  {
+    "id":165,
+    "name":"nomevideo",
+    "token":"b92b42f9bc",
     "on_queue":false,
     "on_render":false,
-    "processed":true,
+    "processed":false,
     "deleted":false,
-    "processed_at":"2018-06-19T18:29:39.762Z",
+    "processed_at":null,
     "data_file_name":"teste.mp4",
-    "data_content_type":"application/mp4",
+    "data_content_type":"application/octet-stream",
     "data_file_size":"5146759",
-    "data_updated_at":"2018-06-19 17:56:50 +0000",
+    "data_updated_at":"2018-06-27 16:45:19 +0000",
     "user_id":2,
-    "created_at":"2018-06-19T17:56:50.498Z",
-    "updated_at":"2018-06-19T18:29:39.764Z",
+    "created_at":"2018-06-27T16:45:19.732Z",
+    "updated_at":"2018-06-27T16:45:19.732Z",
     "instance_id":null,
     "activated":true,
-    "duration":"48.102000"
+    "duration":null
+  },
+  {
+    "id":164,
+    "name":"nomevideo",
+    "token":"d6d791b7a8",
+    "on_queue":false,
+    "on_render":false,
+    "processed":false,
+    "deleted":false,
+    "processed_at":null,
+    "data_file_name":"teste.mp4",
+    "data_content_type":"application/octet-stream",
+    "data_file_size":"5146759",
+    "data_updated_at":"2018-06-27 16:43:28 +0000",
+    "user_id":2,
+    "created_at":"2018-06-27T16:43:28.026Z",
+    "updated_at":"2018-06-27T16:43:28.026Z",
+    "instance_id":null,
+    "activated":true,
+    "duration":null
   }
-]  
+]
 ```
 
 ### HTTP Request
 
 `GET http://player.chiligumvideos.com/api/videos`
+
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
 
 ## Receber um vídeo específico
 
@@ -1585,6 +1617,10 @@ video.body
 
 `GET http://player.chiligumvideos.com/api/videos/<ID>`
 
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
+
 ### URL Parameters
 
 Parâmetro | Descrição
@@ -1597,7 +1633,7 @@ ID    | ID do vídeo que deseja retornar
 curl "http://player.chiligumvideos.com/api/videos" \
 -H "token: seutoken" \
 -F "[video]name=nomevideo" \
--F "[video]data=seuvideo.mp4" \
+-F "[video]data=@seuvideo.mp4" \
 ```
 
 ```ruby
@@ -1617,12 +1653,35 @@ video = RestClient.post('http://player.chiligumvideos.com/api/videos', params, h
 > O comando acima deve retornar uma estrutura JSON:
 
 ```json
-  
+{
+  "id":165,
+  "name":"nomevideo",
+  "token":"b92b42f9bc",
+  "on_queue":false,
+  "on_render":false,
+  "processed":false,
+  "deleted":false,
+  "processed_at":null,
+  "data_file_name":"teste.mp4",
+  "data_content_type":"application/octet-stream",
+  "data_file_size":"5146759",
+  "data_updated_at":"2018-06-27 16:45:19 +0000",
+  "user_id":2,
+  "created_at":"2018-06-27T16:45:19.732Z",
+  "updated_at":"2018-06-27T16:45:19.732Z",
+  "instance_id":null,
+  "activated":true,
+  "duration":null
+}
 ```
 
 ### HTTP Request
 
 `POST http://player.chiligumvideos.com/api/videos`
+
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
 
 
 ### Parametrôs do post
@@ -1658,6 +1717,10 @@ video.body
 ### HTTP Request
 
 `DELETE http://player.chiligumvideos.com/api/videos/<ID>`
+
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
 
 ### URL Parameters
 
