@@ -1487,13 +1487,117 @@ ID | ID do video a ser deletado
 
  Todos os vídeos podem ser persistidos no nosso player de vídeos através dos próximos endpoints.
 
+## Receber todos os vídeos enviados
+
+ Este endpoint retorna todos os vídeos no player pertencentes ao usuário do token
+
+```shell
+curl "http://player.chiligumvideos.com/api/videos" \
+-H "token: seutoken" \
+```
+
+```ruby
+require 'rest-client'
+
+headers = {token: 'seutoken'}
+
+videos = RestClient.get('http://player.chiligumvideos.com/api/videos', headers)
+videos.body
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+[
+  { 
+    "id":162,
+    "name":"Samba Rock",
+    "token":"dff4f6b549",
+    "on_queue":false,
+    "on_render":false,
+    "processed":true,
+    "deleted":false,
+    "processed_at":"2018-06-19T18:29:39.762Z",
+    "data_file_name":"teste.mp4",
+    "data_content_type":"application/mp4",
+    "data_file_size":"5146759",
+    "data_updated_at":"2018-06-19 17:56:50 +0000",
+    "user_id":2,
+    "created_at":"2018-06-19T17:56:50.498Z",
+    "updated_at":"2018-06-19T18:29:39.764Z",
+    "instance_id":null,
+    "activated":true,
+    "duration":"48.102000"
+  }
+]  
+```
+
+### HTTP Request
+
+`GET http://player.chiligumvideos.com/api/videos`
+
+## Receber um vídeo específico
+
+ Este endpoint retorna um vídeo através do seu ID
+
+```shell
+curl "http://player.chiligumvideos.com/api/videos/<ID>" \
+-H "token: seutoken" \
+```
+
+```ruby
+require 'rest-client'
+
+headers = {token: 'seutoken'}
+
+video = RestClient.get('http://player.chiligumvideos.com/api/videos/<ID>', headers)
+video.body
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+
+{ 
+  "id":162,
+  "name":"Samba Rock",
+  "token":"dff4f6b549",
+  "on_queue":false,
+  "on_render":false,
+  "processed":true,
+  "deleted":false,
+  "processed_at":"2018-06-19T18:29:39.762Z",
+  "data_file_name":"teste.mp4",
+  "data_content_type":"application/mp4",
+  "data_file_size":"5146759",
+  "data_updated_at":"2018-06-19 17:56:50 +0000",
+  "user_id":2,
+  "created_at":"2018-06-19T17:56:50.498Z",
+  "updated_at":"2018-06-19T18:29:39.764Z",
+  "instance_id":null,
+  "activated":true,
+  "duration":"48.102000"
+}
+ 
+```
+
+### HTTP Request
+
+`GET http://player.chiligumvideos.com/api/videos/<ID>`
+
+### URL Parameters
+
+Parâmetro | Descrição
+--------- | -----------
+ID    | ID do vídeo que deseja retornar
+
 ## Enviar um vídeo ao player
 
 ```shell
 curl "http://player.chiligumvideos.com/api/videos" \
--H "token: 67016615783f287c25cc6249" \
--F "[video]name=teste-shell" \
--F "[video]data=teste.mp4" \
+-H "token: seutoken" \
+-F "[video]name=nomevideo" \
+-F "[video]data=seuvideo.mp4" \
 ```
 
 ```ruby
@@ -1507,7 +1611,7 @@ params = {
   }
 }
 
-RestClient.post('http://player.chiligumvideos.com/api/videos', params, headers)
+video = RestClient.post('http://player.chiligumvideos.com/api/videos', params, headers)
 ```
 
 > O comando acima deve retornar uma estrutura JSON:
@@ -1527,3 +1631,36 @@ Parâmetro | Descrição
 --------- | -----------
 name    | nome do video
 data    | arquivo do video em .mp4
+
+## Deletar um vídeo
+
+```shell
+curl -X DELETE \
+"http://player.chiligumvideos.com/api/videos/<ID>" \
+-H "token: seutoken" \
+```
+
+```ruby
+require 'rest-client'
+
+headers = {token: 'seutoken'}
+
+video = RestClient.delete('http://player.chiligumvideos.com/api/videos/<ID>', headers)
+video.body
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+{"msg":"deleted"}
+```
+
+### HTTP Request
+
+`DELETE http://player.chiligumvideos.com/api/videos/<ID>`
+
+### URL Parameters
+
+Parâmetro | Descrição
+--------- | -----------
+ID    | ID do vídeo que deseja retornar
