@@ -64,7 +64,7 @@ curl "https://api.chiligumvideos.com/"
 
 > Tenha certeza que você mudou `seutoken` com seu token da API.
 
-Para ter acesso a nossa API você deve criar uma conta em [nosso sistema](http://api.chiligumvideos.com/credentials).
+Para ter acesso a nossa API você deve criar uma conta em <a href="http://api.chiligumvideos.com/credentials" target="_blank">nosso sistema</a>.
 
 Após criar a conta você deve entrar em contato conosco para mudarmos o status da conta para enabled.
 
@@ -198,19 +198,20 @@ curl "https://api.chiligumvideos.com/api/fonts" \
 ```
 
 ```ruby
-require 'httparty'
-require 'httmultiparty'
+require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken',
-  'Content-Type' => 'multipart/form-data'
+  'token' => '85ca42d2c1a7bc690af91f25'
 }
 
-font = HTTMultiParty.post('https://api.chiligumvideos.com/api/fonts', :query => {
+params = {
   font: { 
-   name: 'Minha Fonte',
-   font: File.new('/Users/Desktop/minhafonte.ttf')
-  }}, headers: headers)
+    name: 'Minha Fonte',
+    font: File.new('/Users/Desktop/minhafonte.ttf')
+  }
+}
+
+font = RestClient.post('https://api.chiligumvideos.com/api/fonts', params, headers)
 font.body
 ```
 
@@ -417,19 +418,20 @@ curl "https://api.chiligumvideos.com/api/assets" \
 ```
 
 ```ruby
-require 'httparty'
-require 'httmultiparty'
+require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken',
-  'Content-Type' => 'multipart/form-data'
+  'token' => 'seutoken'
 }
 
-asset = HTTMultiParty.post('https://api.chiligumvideos.com/api/assets', :query => {
+params = {
   asset: { 
-   name: 'logo',
-   attachment: File.new('/Users/Desktop/logo.png')
-  }}, headers: headers)
+    name: 'logo',
+    attachment: File.new('/Users/Desktop/logo.png')
+  }
+}
+
+asset = RestClient.post('https://api.chiligumvideos.com/api/assets', params, headers)
 asset.body
 ```
 
@@ -623,19 +625,20 @@ curl "https://api.chiligumvideos.com/api/tracks" \
 ```
 
 ```ruby
-require 'httparty'
-require 'httmultiparty'
+require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken',
-  'Content-Type' => 'multipart/form-data'
+  'token' => 'seutoken'
 }
 
-track = HTTMultiParty.post('https://api.chiligumvideos.com/api/tracks', :query => {
+params = {
   track: { 
-   name: 'track',
-   audio: File.new('/Users/Desktop/track.mp3')
-  }}, headers: headers)
+    name: 'track',
+    audio: File.new('/Users/Desktop/track.mp3')
+  }
+}
+
+track = RestClient.post('https://api.chiligumvideos.com/api/tracks', params, headers)
 track.body
 ```
 
@@ -1073,22 +1076,23 @@ curl "https://api.chiligumvideos.com/api/templates" \
 ```
 
 ```ruby
-require 'httparty'
-require 'httmultiparty'
+require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken',
-  'Content-Type' => 'multipart/form-data'
+  'token' => 'seutoken'
 }
 
-template = HTTMultiParty.post('https://api.chiligumvideos.com/api/template', :query => {
+params = {
   template: { 
-      name: 'Second Template',
-      assets: {'Abertura_PreRender.mp4': assets},
-      fonts: {'font_1': 'path-of_font_file.ttf'}
-      config_fields: arquivo_json,
-      aepx: File.new('/home/lean/Downloads/template.aepx')
-    }}, headers: headers)
+    name: 'Second Template',
+    assets: {'Abertura_PreRender.mp4': assets},
+    fonts: {'font_1': 'path-of_font_file.ttf'}
+    config_fields: arquivo_json,
+    aepx: File.new('/home/lean/Downloads/template.aepx')
+  }
+}
+
+template = RestClient.post('https://api.chiligumvideos.com/api/template', params, headers)
 ```
 
 > O comando acima deve retornar uma estrutura JSON:
@@ -1388,21 +1392,22 @@ curl "https://api.chiligumvideos.com/api/videos" \
 ```
 
 ```ruby
-require 'httparty'
-require 'httmultiparty'
+require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken',
-  'Content-Type' => 'multipart/form-data'
+  'token' => 'seutoken'
 }
 
-@video = HTTMultiParty.post('https://api.chiligumvideos.com/api/videos/api/videos', :query => {
+params = {
   video: { 
-   name: 'Video1',
+    name: 'Video1',
     track_id: 18,
     template_id: 42,
     data: {'texto_1': 'Texto de Abertura', 'texto_2': 'Titulo', 'texto_3': 'Descricao', 'texto_4': 'Texto de encerramento', 'logo': @foto }
-  }}, headers: headers)
+ }
+}
+
+@video = RestClient.post('https://api.chiligumvideos.com/api/videos/api/videos', params, headers)
 
 
 ```
@@ -1413,7 +1418,7 @@ headers = {
   {  
     "id":1,
     "name":"Video1",
-    "url":"https://path_to_server/video_file_name.mp4"
+    "url":"https://path_to_server/video_file_name.mp4",
     "thumbnail_url": "https://path_image/uploaded_image_from_thumbnail.png",
     "template_id":42,
     "track_id":18,
@@ -1480,3 +1485,266 @@ curl -X DELETE \
 Parâmetro | Descrição
 --------- | -----------
 ID | ID do video a ser deletado
+
+# Player de vídeos
+
+## Overview
+
+Todos os vídeos podem ser persistidos no nosso player de vídeos através dos próximos endpoints.
+
+<aside class="notice">
+  Não esqueça de informar o token no header, o token usado no player é diferente do token usado na API.
+</aside>
+
+Para ter acesso à API do nosso player você deve criar uma conta em <a href="http://player.chiligumvideos.com/" target="_blank">nosso sistema</a> e acessar o menu de Credentials.
+
+Após criar a conta você deve entrar em contato conosco para mudarmos o status da conta para enabled.
+
+No link do vídeo pode ser passado parâmetros opcionais, tais como: redirect_url para o redirecionamento automático após a finalização do vídeo e thumbnail_url para colocar o thumbnail no vídeo.
+
+<aside class="warning">
+  Ambos os parâmentros, redirect_url e thumbnail_url, devem ser válidos e a thumbnail_url deve conter apenas a url da imagem não podendo conter quaisquer outros parâmetros.
+</aside>
+
+Exemplo prático `http://player.chiligumvideos.com/46f49b30c8?redirect_url=https://www.google.com&thumbnail_url=https://images.pexels.com/photos/126407/pexels-photo-126407.jpeg`
+
+### Parametrôs opcionais
+
+Parâmetro | Exemplo válido | Exemplo inválido
+--------- | -------------- | ----------------
+redirect_url | https://www.google.com | www.google.com
+thumbnail_url | https://www.link_image.com/image.jpg | https://www.link_image.com/image.jpg?opt_param=teste
+
+
+## Receber todos os vídeos enviados
+
+ Este endpoint retorna todos os vídeos no player pertencentes ao usuário do token
+
+```shell
+curl "http://player.chiligumvideos.com/api/videos" 
+-H "token: seutoken" \
+```
+
+```ruby
+require 'rest-client'
+
+headers = {token: 'seutoken'}
+
+videos = RestClient.get('http://player.chiligumvideos.com/api/videos', headers)
+videos.body
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+[
+  {
+    "id":165,
+    "name":"nomevideo",
+    "token":"b92b42f9bc",
+    "on_queue":false,
+    "on_render":false,
+    "processed":false,
+    "deleted":false,
+    "processed_at":null,
+    "data_file_name":"teste.mp4",
+    "data_content_type":"application/octet-stream",
+    "data_file_size":"5146759",
+    "data_updated_at":"2018-06-27 16:45:19 +0000",
+    "user_id":2,
+    "created_at":"2018-06-27T16:45:19.732Z",
+    "updated_at":"2018-06-27T16:45:19.732Z",
+    "instance_id":null,
+    "activated":true,
+    "duration":null
+  },
+  {
+    "id":164,
+    "name":"nomevideo",
+    "token":"d6d791b7a8",
+    "on_queue":false,
+    "on_render":false,
+    "processed":false,
+    "deleted":false,
+    "processed_at":null,
+    "data_file_name":"teste.mp4",
+    "data_content_type":"application/octet-stream",
+    "data_file_size":"5146759",
+    "data_updated_at":"2018-06-27 16:43:28 +0000",
+    "user_id":2,
+    "created_at":"2018-06-27T16:43:28.026Z",
+    "updated_at":"2018-06-27T16:43:28.026Z",
+    "instance_id":null,
+    "activated":true,
+    "duration":null
+  }
+]
+```
+
+### HTTP Request
+
+`GET http://player.chiligumvideos.com/api/videos`
+
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
+
+## Receber um vídeo específico
+
+ Este endpoint retorna um vídeo através do seu ID
+
+```shell
+curl "http://player.chiligumvideos.com/api/videos/<ID>" \
+-H "token: seutoken" \
+```
+
+```ruby
+require 'rest-client'
+
+headers = {token: 'seutoken'}
+
+video = RestClient.get('http://player.chiligumvideos.com/api/videos/<ID>', headers)
+video.body
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+
+{ 
+  "id":162,
+  "name":"Samba Rock",
+  "token":"dff4f6b549",
+  "on_queue":false,
+  "on_render":false,
+  "processed":true,
+  "deleted":false,
+  "processed_at":"2018-06-19T18:29:39.762Z",
+  "data_file_name":"teste.mp4",
+  "data_content_type":"application/mp4",
+  "data_file_size":"5146759",
+  "data_updated_at":"2018-06-19 17:56:50 +0000",
+  "user_id":2,
+  "created_at":"2018-06-19T17:56:50.498Z",
+  "updated_at":"2018-06-19T18:29:39.764Z",
+  "instance_id":null,
+  "activated":true,
+  "duration":"48.102000"
+}
+ 
+```
+
+### HTTP Request
+
+`GET http://player.chiligumvideos.com/api/videos/<ID>`
+
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
+
+### URL Parameters
+
+Parâmetro | Descrição
+--------- | -----------
+ID    | ID do vídeo que deseja retornar
+
+## Enviar um vídeo ao player
+
+```shell
+curl "http://player.chiligumvideos.com/api/videos" \
+-H "token: seutoken" \
+-F "[video]name=nomevideo" \
+-F "[video]data=@seuvideo.mp4" \
+```
+
+```ruby
+require 'rest-client'
+
+headers = {token: 'seutoken'}
+params = {
+    video: {
+          name: 'nomevideo',
+          data: File.new('seuvideo.mp4', 'rb')
+  }
+}
+
+video = RestClient.post('http://player.chiligumvideos.com/api/videos', params, headers)
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+{
+  "id":165,
+  "name":"nomevideo",
+  "token":"b92b42f9bc",
+  "on_queue":false,
+  "on_render":false,
+  "processed":false,
+  "deleted":false,
+  "processed_at":null,
+  "data_file_name":"teste.mp4",
+  "data_content_type":"application/octet-stream",
+  "data_file_size":"5146759",
+  "data_updated_at":"2018-06-27 16:45:19 +0000",
+  "user_id":2,
+  "created_at":"2018-06-27T16:45:19.732Z",
+  "updated_at":"2018-06-27T16:45:19.732Z",
+  "instance_id":null,
+  "activated":true,
+  "duration":null
+}
+```
+
+### HTTP Request
+
+`POST http://player.chiligumvideos.com/api/videos`
+
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
+
+
+### Parametrôs do post
+
+Parâmetro | Descrição
+--------- | -----------
+name    | nome do video
+data    | arquivo do video em .mp4
+
+## Deletar um vídeo
+
+```shell
+curl -X DELETE \
+"http://player.chiligumvideos.com/api/videos/<ID>" \
+-H "token: seutoken" \
+```
+
+```ruby
+require 'rest-client'
+
+headers = {token: 'seutoken'}
+
+video = RestClient.delete('http://player.chiligumvideos.com/api/videos/<ID>', headers)
+video.body
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+{"msg":"deleted"}
+```
+
+### HTTP Request
+
+`DELETE http://player.chiligumvideos.com/api/videos/<ID>`
+
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
+
+### URL Parameters
+
+Parâmetro | Descrição
+--------- | -----------
+ID    | ID do vídeo que deseja retornar
