@@ -64,7 +64,7 @@ curl "https://api.chiligumvideos.com/"
 
 > Tenha certeza que você mudou `seutoken` com seu token da API.
 
-Para ter acesso a nossa API você deve criar uma conta em [nosso sistema](http://api.chiligumvideos.com/credentials).
+Para ter acesso a nossa API você deve criar uma conta em <a href="http://api.chiligumvideos.com/credentials" target="_blank">nosso sistema</a>.
 
 Após criar a conta você deve entrar em contato conosco para mudarmos o status da conta para enabled.
 
@@ -1418,7 +1418,7 @@ params = {
   {  
     "id":1,
     "name":"Video1",
-    "url":"https://path_to_server/video_file_name.mp4"
+    "url":"https://path_to_server/video_file_name.mp4",
     "thumbnail_url": "https://path_image/uploaded_image_from_thumbnail.png",
     "template_id":42,
     "track_id":18,
@@ -1490,22 +1490,38 @@ ID | ID do video a ser deletado
 
 ## Overview
 
- Todos os vídeos podem ser persistidos no nosso player de vídeos através dos próximos endpoints.
+Todos os vídeos podem ser persistidos no nosso player de vídeos através dos próximos endpoints.
 
 <aside class="notice">
   Não esqueça de informar o token no header, o token usado no player é diferente do token usado na API.
 </aside>
 
-Para ter acesso à API do nosso player você deve criar uma conta em [nosso sistema](http://player.chiligumvideos.com/) e acessar o menu de Credentials.
+Para ter acesso à API do nosso player você deve criar uma conta em <a href="http://player.chiligumvideos.com/" target="_blank">nosso sistema</a> e acessar o menu de Credentials.
 
 Após criar a conta você deve entrar em contato conosco para mudarmos o status da conta para enabled.
+
+No link do vídeo pode ser passado parâmetros opcionais, tais como: redirect_url para o redirecionamento automático após a finalização do vídeo e thumbnail_url para colocar o thumbnail no vídeo.
+
+<aside class="warning">
+  Ambos os parâmentros, redirect_url e thumbnail_url, devem ser válidos e a thumbnail_url deve conter apenas a url da imagem não podendo conter quaisquer outros parâmetros.
+</aside>
+
+Exemplo prático `http://player.chiligumvideos.com/46f49b30c8?redirect_url=https://www.google.com&thumbnail_url=https://images.pexels.com/photos/126407/pexels-photo-126407.jpeg`
+
+### Parametrôs opcionais
+
+Parâmetro | Exemplo válido | Exemplo inválido
+--------- | -------------- | ----------------
+redirect_url | https://www.google.com | www.google.com
+thumbnail_url | https://www.link_image.com/image.jpg | https://www.link_image.com/image.jpg?opt_param=teste
+
 
 ## Receber todos os vídeos enviados
 
  Este endpoint retorna todos os vídeos no player pertencentes ao usuário do token
 
 ```shell
-curl "http://player.chiligumvideos.com/api/videos" \
+curl "http://player.chiligumvideos.com/api/videos" 
 -H "token: seutoken" \
 ```
 
