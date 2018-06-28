@@ -198,19 +198,20 @@ curl "https://api.chiligumvideos.com/api/fonts" \
 ```
 
 ```ruby
-require 'httparty'
-require 'httmultiparty'
+require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken',
-  'Content-Type' => 'multipart/form-data'
+  'token' => '85ca42d2c1a7bc690af91f25'
 }
 
-font = HTTMultiParty.post('https://api.chiligumvideos.com/api/fonts', :query => {
+params = {
   font: { 
-   name: 'Minha Fonte',
-   font: File.new('/Users/Desktop/minhafonte.ttf')
-  }}, headers: headers)
+    name: 'Minha Fonte',
+    font: File.new('/Users/Desktop/minhafonte.ttf')
+  }
+}
+
+font = RestClient.post('https://api.chiligumvideos.com/api/fonts', params, headers)
 font.body
 ```
 
@@ -417,19 +418,20 @@ curl "https://api.chiligumvideos.com/api/assets" \
 ```
 
 ```ruby
-require 'httparty'
-require 'httmultiparty'
+require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken',
-  'Content-Type' => 'multipart/form-data'
+  'token' => 'seutoken'
 }
 
-asset = HTTMultiParty.post('https://api.chiligumvideos.com/api/assets', :query => {
+params = {
   asset: { 
-   name: 'logo',
-   attachment: File.new('/Users/Desktop/logo.png')
-  }}, headers: headers)
+    name: 'logo',
+    attachment: File.new('/Users/Desktop/logo.png')
+  }
+}
+
+asset = RestClient.post('https://api.chiligumvideos.com/api/assets', params, headers)
 asset.body
 ```
 
@@ -623,19 +625,20 @@ curl "https://api.chiligumvideos.com/api/tracks" \
 ```
 
 ```ruby
-require 'httparty'
-require 'httmultiparty'
+require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken',
-  'Content-Type' => 'multipart/form-data'
+  'token' => 'seutoken'
 }
 
-track = HTTMultiParty.post('https://api.chiligumvideos.com/api/tracks', :query => {
+params = {
   track: { 
-   name: 'track',
-   audio: File.new('/Users/Desktop/track.mp3')
-  }}, headers: headers)
+    name: 'track',
+    audio: File.new('/Users/Desktop/track.mp3')
+  }
+}
+
+track = RestClient.post('https://api.chiligumvideos.com/api/tracks', params, headers)
 track.body
 ```
 
@@ -1073,22 +1076,23 @@ curl "https://api.chiligumvideos.com/api/templates" \
 ```
 
 ```ruby
-require 'httparty'
-require 'httmultiparty'
+require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken',
-  'Content-Type' => 'multipart/form-data'
+  'token' => 'seutoken'
 }
 
-template = HTTMultiParty.post('https://api.chiligumvideos.com/api/template', :query => {
+params = {
   template: { 
-      name: 'Second Template',
-      assets: {'Abertura_PreRender.mp4': assets},
-      fonts: {'font_1': 'path-of_font_file.ttf'}
-      config_fields: arquivo_json,
-      aepx: File.new('/home/lean/Downloads/template.aepx')
-    }}, headers: headers)
+    name: 'Second Template',
+    assets: {'Abertura_PreRender.mp4': assets},
+    fonts: {'font_1': 'path-of_font_file.ttf'}
+    config_fields: arquivo_json,
+    aepx: File.new('/home/lean/Downloads/template.aepx')
+  }
+}
+
+template = RestClient.post('https://api.chiligumvideos.com/api/template', params, headers)
 ```
 
 > O comando acima deve retornar uma estrutura JSON:
@@ -1388,21 +1392,22 @@ curl "https://api.chiligumvideos.com/api/videos" \
 ```
 
 ```ruby
-require 'httparty'
-require 'httmultiparty'
+require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken',
-  'Content-Type' => 'multipart/form-data'
+  'token' => 'seutoken'
 }
 
-@video = HTTMultiParty.post('https://api.chiligumvideos.com/api/videos/api/videos', :query => {
+params = {
   video: { 
-   name: 'Video1',
+    name: 'Video1',
     track_id: 18,
     template_id: 42,
     data: {'texto_1': 'Texto de Abertura', 'texto_2': 'Titulo', 'texto_3': 'Descricao', 'texto_4': 'Texto de encerramento', 'logo': @foto }
-  }}, headers: headers)
+ }
+}
+
+@video = RestClient.post('https://api.chiligumvideos.com/api/videos/api/videos', params, headers)
 
 
 ```
