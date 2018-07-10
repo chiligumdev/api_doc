@@ -1496,7 +1496,7 @@ Todos os vídeos podem ser persistidos no nosso player de vídeos através dos p
   Não esqueça de informar o token no header, o token usado no player é diferente do token usado na API.
 </aside>
 
-Para ter acesso à API do nosso player você deve criar uma conta em <a href="http://player.chiligumvideos.com/" target="_blank">nosso sistema</a> e acessar o menu de Credentials.
+Para ter acesso à API do nosso player você deve criar uma conta em <a href="https://player.chiligumvideos.com/" target="_blank">nosso sistema</a> e acessar o menu de Credentials.
 
 Após criar a conta você deve entrar em contato conosco para mudarmos o status da conta para enabled.
 
@@ -1506,7 +1506,7 @@ No link do vídeo pode ser passado parâmetros opcionais, tais como: redirect_ur
   Ambos os parâmentros, redirect_url e thumbnail_url, devem ser válidos e a thumbnail_url deve conter apenas a url da imagem não podendo conter quaisquer outros parâmetros.
 </aside>
 
-Exemplo prático `http://player.chiligumvideos.com/46f49b30c8?redirect_url=https://www.google.com&thumbnail_url=https://images.pexels.com/photos/126407/pexels-photo-126407.jpeg`
+Exemplo prático `https://player.chiligumvideos.com/46f49b30c8?redirect_url=https://www.google.com&thumbnail_url=https://images.pexels.com/photos/126407/pexels-photo-126407.jpeg`
 
 ### Parametrôs opcionais
 
@@ -1521,7 +1521,7 @@ thumbnail_url | https://www.link_image.com/image.jpg | https://www.link_image.co
  Este endpoint retorna todos os vídeos no player pertencentes ao usuário do token
 
 ```shell
-curl "http://player.chiligumvideos.com/api/videos" 
+curl "https://player.chiligumvideos.com/api/videos" 
 -H "token: seutoken" \
 ```
 
@@ -1530,7 +1530,7 @@ require 'rest-client'
 
 headers = {token: 'seutoken'}
 
-videos = RestClient.get('http://player.chiligumvideos.com/api/videos', headers)
+videos = RestClient.get('https://player.chiligumvideos.com/api/videos', headers)
 videos.body
 ```
 
@@ -1583,7 +1583,7 @@ videos.body
 
 ### HTTP Request
 
-`GET http://player.chiligumvideos.com/api/videos`
+`GET https://player.chiligumvideos.com/api/videos`
 
 <aside class="notice">
   Não esqueça de informar o token no header
@@ -1594,7 +1594,7 @@ videos.body
  Este endpoint retorna um vídeo através do seu ID
 
 ```shell
-curl "http://player.chiligumvideos.com/api/videos/<ID>" \
+curl "https://player.chiligumvideos.com/api/videos/<ID>" \
 -H "token: seutoken" \
 ```
 
@@ -1603,7 +1603,7 @@ require 'rest-client'
 
 headers = {token: 'seutoken'}
 
-video = RestClient.get('http://player.chiligumvideos.com/api/videos/<ID>', headers)
+video = RestClient.get('https://player.chiligumvideos.com/api/videos/<ID>', headers)
 video.body
 ```
 
@@ -1636,7 +1636,7 @@ video.body
 
 ### HTTP Request
 
-`GET http://player.chiligumvideos.com/api/videos/<ID>`
+`GET https://player.chiligumvideos.com/api/videos/<ID>`
 
 <aside class="notice">
   Não esqueça de informar o token no header
@@ -1651,7 +1651,7 @@ ID    | ID do vídeo que deseja retornar
 ## Enviar um vídeo ao player
 
 ```shell
-curl "http://player.chiligumvideos.com/api/videos" \
+curl "https://player.chiligumvideos.com/api/videos" \
 -H "token: seutoken" \
 -F "[video]name=nomevideo" \
 -F "[video]data=@seuvideo.mp4" \
@@ -1668,7 +1668,7 @@ params = {
   }
 }
 
-video = RestClient.post('http://player.chiligumvideos.com/api/videos', params, headers)
+video = RestClient.post('https://player.chiligumvideos.com/api/videos', params, headers)
 ```
 
 > O comando acima deve retornar uma estrutura JSON:
@@ -1698,7 +1698,7 @@ video = RestClient.post('http://player.chiligumvideos.com/api/videos', params, h
 
 ### HTTP Request
 
-`POST http://player.chiligumvideos.com/api/videos`
+`POST https://player.chiligumvideos.com/api/videos`
 
 <aside class="notice">
   Não esqueça de informar o token no header
@@ -1716,7 +1716,7 @@ data    | arquivo do video em .mp4
 
 ```shell
 curl -X DELETE \
-"http://player.chiligumvideos.com/api/videos/<ID>" \
+"https://player.chiligumvideos.com/api/videos/<ID>" \
 -H "token: seutoken" \
 ```
 
@@ -1725,7 +1725,7 @@ require 'rest-client'
 
 headers = {token: 'seutoken'}
 
-video = RestClient.delete('http://player.chiligumvideos.com/api/videos/<ID>', headers)
+video = RestClient.delete('https://player.chiligumvideos.com/api/videos/<ID>', headers)
 video.body
 ```
 
@@ -1737,7 +1737,7 @@ video.body
 
 ### HTTP Request
 
-`DELETE http://player.chiligumvideos.com/api/videos/<ID>`
+`DELETE https://player.chiligumvideos.com/api/videos/<ID>`
 
 <aside class="notice">
   Não esqueça de informar o token no header
