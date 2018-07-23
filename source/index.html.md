@@ -1389,6 +1389,7 @@ curl "https://api.chiligumvideos.com/api/videos" \
 -F "[video]track_id=18", \
 -F "[video]template_id=42", \
 -F "[video]data=json_fields" \
+-F "[video]postback_url=http://domain.com"
 ```
 
 ```ruby
@@ -1403,7 +1404,8 @@ params = {
     name: 'Video1',
     track_id: 18,
     template_id: 42,
-    data: {'texto_1': 'Texto de Abertura', 'texto_2': 'Titulo', 'texto_3': 'Descricao', 'texto_4': 'Texto de encerramento', 'logo': @foto }
+    data: {'texto_1': 'Texto de Abertura', 'texto_2': 'Titulo', 'texto_3': 'Descricao', 'texto_4': 'Texto de encerramento', 'logo': @foto },
+    postback_url: 'http://domain.com'
  }
 }
 
@@ -1447,7 +1449,12 @@ name | nome do video
 track_id    | id da trilha a ser transmitida junto ao vídeo
 template_id | template utilizado para criação do vídeo
 data        | dados de preenchimento dos campos disponíveis no template
+postback_url | Este campo é opcional caso precise receber uma notificação em seu endpoint 
 
+<aside class="notice">
+  Os parâmetros retornados no postback body { id, url, thumbnail_url, preview_url }.
+  Aconselhamos utilizar o programa Ngrok para testar o postback no seu ambiente de desenvolvimento.
+</aside>
 
 ## Deletar um video
 
@@ -1655,6 +1662,7 @@ curl "https://player.chiligumvideos.com/api/videos" \
 -H "token: seutoken" \
 -F "[video]name=nomevideo" \
 -F "[video]data=@seuvideo.mp4" \
+-F "[video]postback_url=http://domain.com"
 ```
 
 ```ruby
@@ -1664,7 +1672,8 @@ headers = {token: 'seutoken'}
 params = {
     video: {
           name: 'nomevideo',
-          data: File.new('seuvideo.mp4', 'rb')
+          data: File.new('seuvideo.mp4', 'rb'),
+          postback_url: 'https://domain.com'
   }
 }
 
@@ -1711,6 +1720,13 @@ Parâmetro | Descrição
 --------- | -----------
 name    | nome do video
 data    | arquivo do video em .mp4
+postback_url | Este campo é opcional caso precise receber uma notificação em seu endpoint 
+
+
+<aside class="notice">
+  Os parâmetros retornados no postback body { id, url, thumbnail_url, preview_url }.
+  Aconselhamos utilizar o programa Ngrok para testar o postback no seu ambiente de desenvolvimento.
+</aside>
 
 ## Deletar um vídeo
 
