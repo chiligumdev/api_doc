@@ -1724,7 +1724,7 @@ postback_url | Este campo é opcional caso precise receber uma notificação em 
 
 
 <aside class="notice">
-  Os parâmetros retornados no postback body { id, url, thumbnail_url, preview_url }.
+  Os parâmetros retornados no postback body { id, url }.
   Aconselhamos utilizar o programa Ngrok para testar o postback no seu ambiente de desenvolvimento.
 </aside>
 
