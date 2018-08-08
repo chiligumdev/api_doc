@@ -1450,6 +1450,7 @@ track_id    | id da trilha a ser transmitida junto ao vídeo
 template_id | template utilizado para criação do vídeo
 data        | dados de preenchimento dos campos disponíveis no template
 postback_url | Este campo é opcional caso precise receber uma notificação em seu endpoint 
+play_button | (Opcional) Gera a thumbnail do vídeo contendo um botão de play 
 
 <aside class="notice">
   Os parâmetros retornados no postback body { id, url, thumbnail_url, preview_url }.
