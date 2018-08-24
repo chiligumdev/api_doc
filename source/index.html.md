@@ -1765,3 +1765,90 @@ video.body
 Parâmetro | Descrição
 --------- | -----------
 ID    | ID do vídeo que deseja retornar
+
+
+## Consultar Analytics
+
+ Este endpoint, tem como objetivo trazer todos os analytics realizados no último dia, contando a partir do inicio do dia até seu fim.
+
+```shell
+curl "https://player.chiligumvideos.com/api/analytics" \
+-H "token: seutoken" \
+```
+
+```ruby
+require 'rest-client'
+
+headers = {token: 'seutoken'}
+
+  video = RestClient.get('https://player.chiligumvideos.com/api/analytics', headers)
+  video.body
+
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+[
+   {
+      "id":30,
+      "token":"pifsx44orzd",
+      "system_name":"Generic Linux",
+      "browser_name":"Chrome",
+      "browser_version":"68.0.3440.106",
+      "screen_resolution":"1366x741",
+      "referer":"http://localhost:3000/08d1350e36",
+      "ip":"127.0.0.1",
+      "current_time":0,
+      "mobile":false,
+      "desktop":true,
+      "full_watched":false,
+      "created_at":"2018-08-24T15:03:00.669Z",
+      "updated_at":"2018-08-24T15:45:13.436Z",
+      "duration":"",
+      "ended":false,
+      "video_id":72,
+      "percentage_watched":null,
+      "city_name":null,
+      "country_name":null,
+      "session":"JKSLFEIYTS1RO",
+      "analized":true,
+      "region_name":null
+   },
+   {
+      "id":31,
+      "token":"f6mhf8t79ls",
+      "system_name":"Generic Linux",
+      "browser_name":"Chrome",
+      "browser_version":"68.0.3440.106",
+      "screen_resolution":"1366x741",
+      "referer":"http://localhost:3000/08d1350e36",
+      "ip":"127.0.0.1",
+      "current_time":0,
+      "mobile":false,
+      "desktop":true,
+      "full_watched":false,
+      "created_at":"2018-08-24T15:08:54.143Z",
+      "updated_at":"2018-08-24T15:44:32.171Z",
+      "duration":"",
+      "ended":false,
+      "video_id":72,
+      "percentage_watched":null,
+      "city_name":null,
+      "country_name":null,
+      "session":"JKSLFEIYTS1RO",
+      "analized":true,
+      "region_name":null
+   }
+]
+
+```
+
+### HTTP Request
+
+`GET https://player.chiligumvideos.com/api/analytics`
+
+<aside class="notice">
+  Não esqueça de informar o token no header
+</aside>
+
