@@ -1852,3 +1852,96 @@ headers = {token: 'seutoken'}
   Não esqueça de informar o token no header
 </aside>
 
+## Receber Analytics Por Range
+
+ Este endpoint retorna analytics através do seu intervalo de data de criação, respeitando a regra de que este intervalo deve conter no máximo 30 dias. Caso o intervalo informado não esteja coerente com esta regra, uma mensagem de erro deverá ser retornada ao ususário requerente. Também é preciso que a data inicial "start_date" seja menor que a data final "final_date".
+
+```shell
+curl "https://player.chiligumvideos.com/api/analytics_range?start_date=2018-06-13&final_date=2018-06-23" -H "token: tokedeacessoapi"
+
+```
+
+```ruby
+require 'rest-client'
+
+headers = { token: 'seutoken', params: { start_date: '2018-06-13', final_date: '2018-06-26' }}
+
+analytics = RestClient.get('https://player.chiligumvideos.com/api/analytics_range', headers)
+analytics.body
+```
+
+> O comando acima deve retornar uma estrutura JSON:
+
+```json
+
+[
+   {
+      "id":1,
+      "token":null,
+      "system_name":null,
+      "browser_name":null,
+      "browser_version":null,
+      "screen_resolution":null,
+      "referer":null,
+      "ip":"201.221.0.0 ",
+      "current_time":null,
+      "mobile":false,
+      "desktop":false,
+      "full_watched":false,
+      "created_at":"2018-06-15T16:43:23.963Z",
+      "updated_at":"2018-08-24T20:27:51.646Z",
+      "duration":null,
+      "ended":false,
+      "video_id":1,
+      "percentage_watched":0.0,
+      "city_name":"Montevideo",
+      "country_name":"Uruguay",
+      "session":null,
+      "analized":true,
+      "region_name":null
+   },
+   {
+      "id":2,
+      "token":"yhpm53zfep",
+      "system_name":"Generic Linux",
+      "browser_name":"Firefox",
+      "browser_version":"61.0",
+      "screen_resolution":"1920x1054",
+      "referer":"http://localhost:3000/d4a72c4869",
+      "ip":"127.0.0.1",
+      "current_time":0,
+      "mobile":false,
+      "desktop":true,
+      "full_watched":false,
+      "created_at":"2018-06-15T00:00:00.000Z",
+      "updated_at":"2018-08-24T20:31:36.163Z",
+      "duration":"",
+      "ended":false,
+      "video_id":16,
+      "percentage_watched":null,
+      "city_name":null,
+      "country_name":null,
+      "session":"undefined",
+      "analized":true,
+      "region_name":null
+   }
+]
+
+```
+
+### HTTP Request
+
+`GET https://player.chiligumvideos.com/api/analytics_range`
+
+<aside class="notice">
+  Não esqueça de informar o token no header junto com os parâmetros de start_date e final_date no formato YYYY/mm/dd como no exemplo acima.
+  Lembrando que não podemos exceder o intervalo de 30 dias no filtro e a data inicial não pode ser maior que a data final.
+</aside>
+
+### URL Parameters
+
+Parâmetro | Descrição   | Exemplo
+--------- | ----------- | --------
+start_date    | Data de inicio da criação dos analytics | '2018-06-13'
+final_date    | Data limite da criação dos analytics    | '2018-06-14'
+
