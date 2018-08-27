@@ -1769,80 +1769,9 @@ ID    | ID do vídeo que deseja retornar
 
 ## Consultar Analytics
 
- Este endpoint, tem como objetivo trazer todos os analytics realizados no último dia, contando a partir do inicio do dia até seu fim.
+ Este endpoint retorna ao usuário todos seus dados de analytics gravados na Api. Como opção, é possível enviar um interválo de datas. Os parâmetros não são obrigatórios. Caso não seja passado nenhum parâmetro de intervalo, o endpoint retorna como resultado todos analytics registrados no dia atual. Caso passe os parâmetros, é necessário respeitar a regra de não exceder o total de 30 dias entre o intervalo.
+ O parâmetro start_date também deverá ter a data inferior ao parâmetro final_date.
 
-```shell
-curl "https://player.chiligumvideos.com/api/analytics" \
--H "token: seutoken" \
-```
-
-```ruby
-require 'rest-client'
-
-headers = {token: 'seutoken'}
-
-  video = RestClient.get('https://player.chiligumvideos.com/api/analytics', headers)
-  video.body
-
-```
-
-> O comando acima deve retornar uma estrutura JSON:
-
-```json
-[
-   {
-      "id":30,
-      "token":"pifsx44orzd",
-      "system_name":"Generic Linux",
-      "browser_name":"Chrome",
-      "browser_version":"68.0.3440.106",
-      "screen_resolution":"1366x741",
-      "referer":"http://localhost:3000/08d1350e36",
-      "ip":"127.0.0.1",
-      "current_time":0,
-      "mobile":false,
-      "desktop":true,
-      "full_watched":false,
-      "created_at":"2018-08-24T15:03:00.669Z",
-      "updated_at":"2018-08-24T15:45:13.436Z",
-      "duration":"",
-      "ended":false,
-      "video_id":72,
-      "percentage_watched":null,
-      "city_name":null,
-      "country_name":null,
-      "session":"JKSLFEIYTS1RO",
-      "analized":true,
-      "region_name":null
-   },
-   {
-      "id":31,
-      "token":"f6mhf8t79ls",
-      "system_name":"Generic Linux",
-      "browser_name":"Chrome",
-      "browser_version":"68.0.3440.106",
-      "screen_resolution":"1366x741",
-      "referer":"http://localhost:3000/08d1350e36",
-      "ip":"127.0.0.1",
-      "current_time":0,
-      "mobile":false,
-      "desktop":true,
-      "full_watched":false,
-      "created_at":"2018-08-24T15:08:54.143Z",
-      "updated_at":"2018-08-24T15:44:32.171Z",
-      "duration":"",
-      "ended":false,
-      "video_id":72,
-      "percentage_watched":null,
-      "city_name":null,
-      "country_name":null,
-      "session":"JKSLFEIYTS1RO",
-      "analized":true,
-      "region_name":null
-   }
-]
-
-```
 
 ### HTTP Request
 
@@ -1852,21 +1781,18 @@ headers = {token: 'seutoken'}
   Não esqueça de informar o token no header
 </aside>
 
-## Receber Analytics Por Range
-
- Este endpoint retorna analytics através do seu intervalo de data de criação, respeitando a regra de que este intervalo deve conter no máximo 30 dias. Caso o intervalo informado não esteja coerente com esta regra, uma mensagem de erro deverá ser retornada ao ususário requerente. Também é preciso que a data inicial "start_date" seja menor que a data final "final_date".
 
 ```shell
-curl "https://player.chiligumvideos.com/api/analytics_range?start_date=13-06-2018&final_date=23-06-2018" -H "token: tokedeacessoplayerapi"
+curl "https://player.chiligumvideos.com/api/analytics?start_date=2018-08-13&final_date=2018-08-23" -H "token: tokedeacessoplayerapi"
 
 ```
 
 ```ruby
 require 'rest-client'
 
-headers = { token: 'seutoken', params: { start_date: '13-06-2018', final_date: '23-06-2018' }}
+headers = { token: 'seutoken', params: { start_date: '2018-08-13', final_date: '2018-08-23' }}
 
-analytics = RestClient.get('https://player.chiligumvideos.com/api/analytics_range', headers)
+analytics = RestClient.get('https://player.chiligumvideos.com/api/analytics', headers)
 analytics.body
 ```
 
@@ -1929,19 +1855,10 @@ analytics.body
 
 ```
 
-### HTTP Request
-
-`GET https://player.chiligumvideos.com/api/analytics_range`
-
-<aside class="notice">
-  Não esqueça de informar o token no header junto com os parâmetros de start_date e final_date no formato dd-mm-YYYY como no exemplo acima.
-  Lembrando que não podemos exceder o intervalo de 30 dias no filtro e a data inicial não pode ser maior que a data final. Caso nenhum parâmetro de data seja informado, a API retorna uma coleção com o dia atual da pesquisa. Ou seja, os parâmetros não são obrigatórios, porém, caso informados, necessitam de estar no formato correto, como informados abaixo.
-</aside>
-
 ### URL Parameters
 
-Parâmetro | Descrição   | Exemplo
---------- | ----------- | --------
-start_date    | Data de inicio da criação dos analytics | '13-06-2018'
-final_date    | Data limite da criação dos analytics    | '14-06-2018'
+Parâmetro | Descrição   | Exemplo  | Obrigatório
+--------- | ----------- | -------- |--------------
+start_date    | Data de inicio da criação dos analytics | '2018-06-13' | não
+final_date    | Data limite da criação dos analytics    | '2018-06-14' | não
 
