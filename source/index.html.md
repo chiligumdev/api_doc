@@ -1857,14 +1857,14 @@ headers = {token: 'seutoken'}
  Este endpoint retorna analytics através do seu intervalo de data de criação, respeitando a regra de que este intervalo deve conter no máximo 30 dias. Caso o intervalo informado não esteja coerente com esta regra, uma mensagem de erro deverá ser retornada ao ususário requerente. Também é preciso que a data inicial "start_date" seja menor que a data final "final_date".
 
 ```shell
-curl "https://player.chiligumvideos.com/api/analytics_range?start_date=2018-06-13&final_date=2018-06-23" -H "token: tokedeacessoapi"
+curl "https://player.chiligumvideos.com/api/analytics_range?start_date=13-06-2018&final_date=23-06-2018" -H "token: tokedeacessoplayerapi"
 
 ```
 
 ```ruby
 require 'rest-client'
 
-headers = { token: 'seutoken', params: { start_date: '2018-06-13', final_date: '2018-06-26' }}
+headers = { token: 'seutoken', params: { start_date: '13-06-2018', final_date: '23-06-2018' }}
 
 analytics = RestClient.get('https://player.chiligumvideos.com/api/analytics_range', headers)
 analytics.body
@@ -1934,14 +1934,14 @@ analytics.body
 `GET https://player.chiligumvideos.com/api/analytics_range`
 
 <aside class="notice">
-  Não esqueça de informar o token no header junto com os parâmetros de start_date e final_date no formato YYYY/mm/dd como no exemplo acima.
-  Lembrando que não podemos exceder o intervalo de 30 dias no filtro e a data inicial não pode ser maior que a data final.
+  Não esqueça de informar o token no header junto com os parâmetros de start_date e final_date no formato dd-mm-YYYY como no exemplo acima.
+  Lembrando que não podemos exceder o intervalo de 30 dias no filtro e a data inicial não pode ser maior que a data final. Caso nenhum parâmetro de data seja informado, a API retorna uma coleção com o dia atual da pesquisa. Ou seja, os parâmetros não são obrigatórios, porém, caso informados, necessitam de estar no formato correto, como informados abaixo.
 </aside>
 
 ### URL Parameters
 
 Parâmetro | Descrição   | Exemplo
 --------- | ----------- | --------
-start_date    | Data de inicio da criação dos analytics | '2018-06-13'
-final_date    | Data limite da criação dos analytics    | '2018-06-14'
+start_date    | Data de inicio da criação dos analytics | '13-06-2018'
+final_date    | Data limite da criação dos analytics    | '14-06-2018'
 
