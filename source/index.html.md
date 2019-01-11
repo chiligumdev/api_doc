@@ -1384,7 +1384,8 @@ ID | ID do video que deseja retornar
 
 ```shell
 curl "https://api.chiligumvideos.com/api/videos" \
--H "token: seutoken" \   
+-H "token: seutoken" \
+-H "Content-Type: "application/json" \
 -F "[video]name=Video1" \
 -F "[video]track_id=18", \
 -F "[video]template_id=42", \
@@ -1396,7 +1397,8 @@ curl "https://api.chiligumvideos.com/api/videos" \
 require 'rest-client'
 
 headers = { 
-  'token' => 'seutoken'
+  'token'        => 'seutoken'
+  'Content-Type' => 'application/json'
 }
 
 params = {
