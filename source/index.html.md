@@ -3,6 +3,7 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
+  - javascript
   - ruby
 
 toc_footers:
@@ -18,25 +19,20 @@ search: true
 
 Bem-vindo a API da Chiligum! Você pode usar nossa API para gerar vídeos customizados em massa.
 
-Temos exemplos em Shell e Ruby. Você pode usar qualquer linguagem que tenha suporte a HTTP.
+Temos exemplos em Shell, Javascript e Ruby. Você pode usar qualquer linguagem que tenha suporte a HTTP.
 
 Nossa API é composta por **templates**, **tracks**, **assets**, **fonts** e **vídeos**. Sendo eles:
 
 **Templates** armazena o aepx gerado pelo AfterEffects, assets estáticos, fonts e configurações do template
 
-
 **Tracks** música do vídeo em mp3. Sendo opcional caso o vídeo não tenha uma faixa de áudio.
-
 
 **Assets** responsável por armazernar todos vídeos e imagens que são usados no template como assets estáticos e nos vídeos como um logo ou foto enviada por um usuário.
 
-
-**Fonts** caso o template tenha alguma font customizada você deve fazer o upload delas neste endpoint e informar o link 
+**Fonts** caso o template tenha alguma font customizada você deve fazer o upload delas neste endpoint e informar o link
 dentro do end point de templates.
 
-
 **Vídeos** recebe as informações enviadas a patir de tracks, templates e assets.
-
 
 <img src='images/introduction.png' class='introduction'>
 
@@ -47,7 +43,7 @@ dentro do end point de templates.
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -56,10 +52,25 @@ request = HTTParty.get("https://api.chiligumvideos.com", headers: headers)
 request.body
 ```
 
-
 ```shell
 curl "https://api.chiligumvideos.com/"
   -H "token: seutoken"
+```
+
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/').then((result) => {
+  console.log(result.data)
+})
 ```
 
 > Tenha certeza que você mudou `seutoken` com seu token da API.
@@ -98,16 +109,34 @@ headers = {
 
 fonts = HTTParty.get("https://api.chiligumvideos.com/api/fonts", headers: headers)
 fonts.body
-``` 
+```
+
 ```shell
 curl "https://api.chiligumvideos.com/api/fonts"
   -H "token: seutoken"
 ```
+
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/fonts').then((result) => {
+  console.log(result.data)
+})
+```
+
 > O comando acima retorna um JSON com todas as fontes disponíveis persistidas pelo usuário em posse do token informado no header da requisição:
 
 ```json
-[  
-   {  
+[
+   {
       "id":1,
       "name":"Fonte do Vídeo 1",
       "url":"https://s3.amazonaws.com/apiteaser/fonts/8ed7d3ab7ff119921316dbb2077211b168803a0d.ttf",
@@ -117,7 +146,7 @@ curl "https://api.chiligumvideos.com/api/fonts"
       "created_at":"2017-08-30T19:13:47.722Z",
       "updated_at":"2017-08-30T19:13:47.722Z"
    },
-   {  
+   {
       "id":2,
       "name":"Fonte do Vídeo 2",
       "url":"https://s3.amazonaws.com/apiteaser/fonts/3269f186d9cf12440428af94e1c622039b7d679a.ttf",
@@ -146,7 +175,7 @@ Não esqueça de informar o token no header
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -160,10 +189,26 @@ curl "https://api.chiligumvideos.com/api/fonts/<ID>"
   -H "token: seutoken"
 ```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/fonts/<ID>').then((result) => {
+  console.log(result.data)
+})
+```
+
 > O comando acima deve retornar uma estrutura JSON com informações sobre o registro enviado na requisição com o seguinte formato:
 
 ```json
-{  
+{
    "id":21,
    "name":"Fonte extra",
    "url":"https://s3.amazonaws.com/apiteaser/fonts/d1dd44a427a1a3eb34b406b1c85ea56dedee4be1.ttf",
@@ -192,7 +237,7 @@ ID | ID da fonte que deseja retornar
 
 ```shell
 curl "https://api.chiligumvideos.com/api/fonts" \
--H "token: seutoken" \   
+-H "token: seutoken" \
 -F "[font]name=logo" \
 -F "[font]font=@/Users/Desktop/minhafonte.ttf"
 ```
@@ -200,12 +245,12 @@ curl "https://api.chiligumvideos.com/api/fonts" \
 ```ruby
 require 'rest-client'
 
-headers = { 
+headers = {
   'token' => '85ca42d2c1a7bc690af91f25'
 }
 
 params = {
-  font: { 
+  font: {
     name: 'Minha Fonte',
     font: File.new('/Users/Desktop/minhafonte.ttf')
   }
@@ -215,10 +260,33 @@ font = RestClient.post('https://api.chiligumvideos.com/api/fonts', params, heade
 font.body
 ```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+const params = {
+  font: {
+    name: 'Minha Fonte',
+    font: new File('/Users/Desktop/minhafonte.ttf')
+  }
+}
+
+instance.post('/fonts', params).then((result) => {
+  console.log(result.data)
+})
+```
+
 > O comando acima deve retornar uma estrutura JSON com informações sobre a fonte que acaba de ser inserida pela API caso obtenha sucesso:
 
 ```json
- {  
+ {
     "id":29,
     "name":"Minha Fonte",
     "url":"https://s3.amazonaws.com/apiteaser/fonts/8aee59959d03d261b0ce3d9b1a153d9499cfa511.ttf",
@@ -247,7 +315,7 @@ fonte | arquivo do post
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -260,14 +328,29 @@ font.body
 curl -X DELETE \
 "https://api.chiligumvideos.com/api/fonts/<ID>" \
 -H "token: seutoken"
+```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.delete('/fonts/<ID>').then((result) => {
+  console.log(result.data)
+})
 ```
 
 > O comando acima deve retornar uma estrutura JSON com informações sobre o registro deletado, contendo também a informação de msg com valor de "deleted" informando o sucesso da requisição:
 
 ```json
-{  
-   "font":{  
+{
+   "font":{
       "id":21,
       "name":"Fonte extra",
       "url":"https://s3.amazonaws.com/apiteaser/fonts/d1dd44a427a1a3eb34b406b1c85ea56dedee4be1.ttf",
@@ -291,7 +374,6 @@ Parâmetro | Descrição
 --------- | -----------
 ID | ID da fonte a ser deletado
 
-
 # Assets
 
 ## Overview
@@ -300,10 +382,26 @@ Todos os assets (imagens e vídeos) utilizados dentro do template ou como input 
 
 ## Receber todos Assets
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/assets').then((result) => {
+  console.log(result.data)
+})
+```
+
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -318,6 +416,13 @@ curl "https://api.chiligumvideos.com/api/assets"
 ```
 
 > O comando acima retorna um JSON com todos os assets disponíveis persistidos pelo usuário em posse do token informado no header da requisição:
+
+### Parametrôs de query
+
+Parâmetro | Default | Descrição
+--------- | ------- | -----------
+page | 1 | Página atual
+per_page | 20 | Número de itens por páginas (máximo de itens por páginas = 200)
 
 
 ```json
@@ -351,10 +456,13 @@ curl "https://api.chiligumvideos.com/api/assets"
 Este endpoint retorna todos os assets.
 
 
-### HTTP Request
+### HTTP Request - rota padrão
 
 `GET https://api.chiligumvideos.com/api/assets`
 
+### HTTP Request - utilizando paginação
+
+`GET https://api.chiligumvideos.com/api/assets?page=3&per_page=35`
 
 <aside class="notice">
 Não esqueça de informar o token no header
@@ -365,7 +473,7 @@ Não esqueça de informar o token no header
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -377,6 +485,22 @@ asset.body
 ```shell
 curl "https://api.chiligumvideos.com/api/assets/<ID>"
   -H "token: seutoken"
+```
+
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/assets/<ID>').then((result) => {
+  console.log(result.data)
+})
 ```
 
 > O comando acima deve retornar uma estrutura JSON com informações sobre o registro enviado na requisição com o seguinte formato:
@@ -412,7 +536,7 @@ ID | ID do asset que deseja retornar
 
 ```shell
 curl "https://api.chiligumvideos.com/api/assets" \
--H "token: seutoken" \   
+-H "token: seutoken" \
 -F "[asset]name=logo" \
 -F "[asset]attachment=@/Users/Desktop/logo.png"
 ```
@@ -420,12 +544,12 @@ curl "https://api.chiligumvideos.com/api/assets" \
 ```ruby
 require 'rest-client'
 
-headers = { 
+headers = {
   'token' => 'seutoken'
 }
 
 params = {
-  asset: { 
+  asset: {
     name: 'logo',
     attachment: File.new('/Users/Desktop/logo.png')
   }
@@ -435,7 +559,37 @@ asset = RestClient.post('https://api.chiligumvideos.com/api/assets', params, hea
 asset.body
 ```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+const params = {
+  asset: {
+    name: 'logo',
+    attachment: new File('/Users/Desktop/logo.png')
+  }
+}
+
+instance.post('/assets', params).then((result) => {
+  console.log(result.data)
+})
+```
+
 > O comando acima deve retornar uma estrutura JSON com informações sobre o asset que acaba de ser persistido pela API caso obtenha sucesso:
+
+### Parametrôs de query
+
+Parâmetro | Default | Descrição
+--------- | ------- | -----------
+page | 1 | Página atual
+per_page | 20 | Número de itens por páginas (máximo de itens por páginas = 200)
 
 ```json
   {
@@ -469,7 +623,7 @@ attachment | arquivo do post
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -483,6 +637,22 @@ curl -X DELETE \
 "https://api.chiligumvideos.com/api/assets/<ID>" \
 -H "token: seutoken"
 
+```
+
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.delete('/assets/<ID>').then((result) => {
+  console.log(result.data)
+})
 ```
 
 > O comando acima deve retornar uma estrutura JSON:
@@ -515,7 +685,7 @@ Todos as faixas de som utilizadas no vídeo devem ser persistidas neste endpoint
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -527,6 +697,24 @@ tracks.body
 ```shell
 curl "https://api.chiligumvideos.com/api/tracks"
   -H "token: seutoken"
+```
+
+## Receber todos Assets
+
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/tracks').then((result) => {
+  console.log(result.data)
+})
 ```
 
 > O comando acima retorna um JSON com todas as tracks disponíveis persistidos pelo usuário em posse do token informado no header da requisição:
@@ -557,11 +745,13 @@ curl "https://api.chiligumvideos.com/api/tracks"
 
 Este endpoint retorna todas as tracks.
 
-
-### HTTP Request
+### HTTP Request - rota padrão
 
 `GET https://api.chiligumvideos.com/api/tracks`
 
+### HTTP Request - utilizando paginação
+
+`GET https://api.chiligumvideos.com/api/tracks?page=3&per_page=35`
 
 <aside class="notice">
 Não esqueça de informar o token no header
@@ -572,7 +762,7 @@ Não esqueça de informar o token no header
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -584,6 +774,22 @@ track.body
 ```shell
 curl "https://api.chiligumvideos.com/api/tracks/<ID>"
   -H "token: seutoken"
+```
+
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/tracks/<ID>').then((result) => {
+  console.log(result.data)
+})
 ```
 
 > O comando acima deve retornar uma estrutura JSON com informações sobre o registro enviado na requisição com o seguinte formato:
@@ -619,7 +825,7 @@ ID | ID da track que deseja retornar
 
 ```shell
 curl "https://api.chiligumvideos.com/api/tracks" \
--H "token: seutoken" \   
+-H "token: seutoken" \
 -F "[track]name=track" \
 -F "[track]audio=@/Users/Desktop/logo.png"
 ```
@@ -627,12 +833,12 @@ curl "https://api.chiligumvideos.com/api/tracks" \
 ```ruby
 require 'rest-client'
 
-headers = { 
+headers = {
   'token' => 'seutoken'
 }
 
 params = {
-  track: { 
+  track: {
     name: 'track',
     audio: File.new('/Users/Desktop/track.mp3')
   }
@@ -640,6 +846,29 @@ params = {
 
 track = RestClient.post('https://api.chiligumvideos.com/api/tracks', params, headers)
 track.body
+```
+
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+const params = {
+  track: {
+    name: 'track',
+    audio: new File('/Users/Desktop/track.mp3')
+  }
+}
+
+instance.post('/tracks', params).then((result) => {
+  console.log(result.data)
+})
 ```
 
 > O comando acima deve retornar uma estrutura JSON com informações sobre a track que acaba de ser persistida pela API caso obtenha sucesso:
@@ -675,7 +904,7 @@ audio | arquivo do post
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -689,6 +918,22 @@ curl -X DELETE \
 "https://api.chiligumvideos.com/api/tracks/<ID>" \
 -H "token: seutoken"
 
+```
+
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.delete('/tracks/<ID>').then((result) => {
+  console.log(result.data)
+})
 ```
 
 > O comando acima deve retornar uma estrutura JSON:
@@ -720,7 +965,7 @@ ID | ID da track a ser deletada
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -734,36 +979,59 @@ curl "https://api.chiligumvideos.com/api/templates"
   -H "token: seutoken"
 ```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/templates').then((result) => {
+  console.log(result.data)
+})
+```
+
 > O comando acima retorna um JSON:
 
+### Parametrôs de query
+
+Parâmetro | Default | Descrição
+--------- | ------- | -----------
+page | 1 | Página atual
+per_page | 20 | Número de itens por páginas (máximo de itens por páginas = 200)
+
 ```json
-[  
-   {  
+[
+   {
       "id":42,
       "name":"Second Template",
-      "assets":{  
+      "assets":{
          "Abertura_PreRender.mp4":""
       },
-      "config_fields":{  
+      "config_fields":{
          "name":"Template_Doencas",
          "duration":"20",
-         "variables":{  
-            "foto":{  
+         "variables":{
+            "foto":{
                "name":"Imagem",
                "type":"img",
                "width":"1600",
                "height":"900",
                "output":"Foto.png"
             },
-            "logo":{  
+            "logo":{
                "name":"Logo",
                "type":"img",
                "width":"1030",
                "height":"470",
                "output":"Logo.png"
             },
-            "texto_1":{  
-               "font":{  
+            "texto_1":{
+               "font":{
                   "size":"60",
                   "family":"MyriadPro-Regular"
                },
@@ -772,8 +1040,8 @@ curl "https://api.chiligumvideos.com/api/templates"
                "color":"#50747B",
                "output":"Texto_1.png"
             },
-            "texto_2":{  
-               "font":{  
+            "texto_2":{
+               "font":{
                   "size":"120",
                   "family":"MyriadPro-Semibold"
                },
@@ -782,8 +1050,8 @@ curl "https://api.chiligumvideos.com/api/templates"
                "color":"#FFFFFF",
                "output":"Texto_2.png"
             },
-            "texto_3":{  
-               "font":{  
+            "texto_3":{
+               "font":{
                   "size":"73",
                   "family":"MyriadPro-Semibold"
                },
@@ -796,8 +1064,8 @@ curl "https://api.chiligumvideos.com/api/templates"
                "height":"265",
                "output":"Texto_3.png"
             },
-            "texto_4":{  
-               "font":{  
+            "texto_4":{
+               "font":{
                   "size":"130",
                   "family":"MyriadPro-Bold"
                },
@@ -812,7 +1080,7 @@ curl "https://api.chiligumvideos.com/api/templates"
             }
          },
          "main_frame":"35",
-         "preview_frames":[  
+         "preview_frames":[
             "35",
             "101",
             "154",
@@ -829,32 +1097,32 @@ curl "https://api.chiligumvideos.com/api/templates"
       "created_at":"2017-09-29T14:26:32.880Z",
       "updated_at":"2017-09-29T14:26:32.880Z"
    },
-   {  
+   {
       "id":41,
       "name":"First Template",
-      "assets":{  
+      "assets":{
          "Abertura_PreRender.mp4":""
       },
-      "config_fields":{  
+      "config_fields":{
          "name":"Template_Doencas",
          "duration":"20",
-         "variables":{  
-            "foto":{  
+         "variables":{
+            "foto":{
                "name":"Imagem",
                "type":"img",
                "width":"1600",
                "height":"900",
                "output":"Foto.png"
             },
-            "logo":{  
+            "logo":{
                "name":"Logo",
                "type":"img",
                "width":"1030",
                "height":"470",
                "output":"Logo.png"
             },
-            "texto_1":{  
-               "font":{  
+            "texto_1":{
+               "font":{
                   "size":"60",
                   "family":"MyriadPro-Regular"
                },
@@ -863,8 +1131,8 @@ curl "https://api.chiligumvideos.com/api/templates"
                "color":"#50747B",
                "output":"Texto_1.png"
             },
-            "texto_2":{  
-               "font":{  
+            "texto_2":{
+               "font":{
                   "size":"120",
                   "family":"MyriadPro-Semibold"
                },
@@ -873,8 +1141,8 @@ curl "https://api.chiligumvideos.com/api/templates"
                "color":"#FFFFFF",
                "output":"Texto_2.png"
             },
-            "texto_3":{  
-               "font":{  
+            "texto_3":{
+               "font":{
                   "size":"73",
                   "family":"MyriadPro-Semibold"
                },
@@ -887,8 +1155,8 @@ curl "https://api.chiligumvideos.com/api/templates"
                "height":"265",
                "output":"Texto_3.png"
             },
-            "texto_4":{  
-               "font":{  
+            "texto_4":{
+               "font":{
                   "size":"130",
                   "family":"MyriadPro-Bold"
                },
@@ -903,7 +1171,7 @@ curl "https://api.chiligumvideos.com/api/templates"
             }
          },
          "main_frame":"35",
-         "preview_frames":[  
+         "preview_frames":[
             "35",
             "101",
             "154",
@@ -926,11 +1194,13 @@ curl "https://api.chiligumvideos.com/api/templates"
 
 Este endpoint retorna todos os templates.
 
-
-### HTTP Request
+### HTTP Request - rota padrão
 
 `GET https://api.chiligumvideos.com/api/templates`
 
+### HTTP Request - utilizando paginação
+
+`GET https://api.chiligumvideos.com/api/templates?page=3&per_page=35`
 
 <aside class="notice">
   Não esqueça de informar o token no header
@@ -941,7 +1211,7 @@ Este endpoint retorna todos os templates.
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -955,35 +1225,51 @@ curl "https://api.chiligumvideos.com/api/templates/<ID>"
   -H "token: seutoken"
 ```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/templates/<ID>').then((result) => {
+  console.log(result.data)
+})
+```
+
 > O comando acima deve retornar uma estrutura de JSON:
 
 ```json
- {  
+ {
     "id":42,
     "name":"Second Template",
-    "assets":{  
+    "assets":{
        "Abertura_PreRender.mp4":""
     },
-    "config_fields":{  
+    "config_fields":{
        "name":"Template_Doencas",
        "duration":"20",
-       "variables":{  
-          "foto":{  
+       "variables":{
+          "foto":{
              "name":"Imagem",
              "type":"img",
              "width":"1600",
              "height":"900",
              "output":"Foto.png"
           },
-          "logo":{  
+          "logo":{
              "name":"Logo",
              "type":"img",
              "width":"1030",
              "height":"470",
              "output":"Logo.png"
           },
-          "texto_1":{  
-             "font":{  
+          "texto_1":{
+             "font":{
                 "size":"60",
                 "family":"MyriadPro-Regular"
              },
@@ -992,8 +1278,8 @@ curl "https://api.chiligumvideos.com/api/templates/<ID>"
              "color":"#50747B",
              "output":"Texto_1.png"
           },
-          "texto_2":{  
-             "font":{  
+          "texto_2":{
+             "font":{
                 "size":"120",
                 "family":"MyriadPro-Semibold"
              },
@@ -1002,8 +1288,8 @@ curl "https://api.chiligumvideos.com/api/templates/<ID>"
              "color":"#FFFFFF",
              "output":"Texto_2.png"
           },
-          "texto_3":{  
-             "font":{  
+          "texto_3":{
+             "font":{
                 "size":"73",
                 "family":"MyriadPro-Semibold"
              },
@@ -1016,8 +1302,8 @@ curl "https://api.chiligumvideos.com/api/templates/<ID>"
              "height":"265",
              "output":"Texto_3.png"
           },
-          "texto_4":{  
-             "font":{  
+          "texto_4":{
+             "font":{
                 "size":"130",
                 "family":"MyriadPro-Bold"
              },
@@ -1032,7 +1318,7 @@ curl "https://api.chiligumvideos.com/api/templates/<ID>"
           }
        },
        "main_frame":"35",
-       "preview_frames":[  
+       "preview_frames":[
           "35",
           "101",
           "154",
@@ -1067,7 +1353,7 @@ ID | ID do template que deseja retornar
 
 ```shell
 curl "https://api.chiligumvideos.com/api/templates" \
--H "token: seutoken" \   
+-H "token: seutoken" \
 -F "[template]name=nome_do_template" \
 -F "[template]assets=@/Users/Desktop/logo.mp4" \
 -F "[template]fonts=@Users/Desktop/font.ttf"
@@ -1078,12 +1364,12 @@ curl "https://api.chiligumvideos.com/api/templates" \
 ```ruby
 require 'rest-client'
 
-headers = { 
+headers = {
   'token' => 'seutoken'
 }
 
 params = {
-  template: { 
+  template: {
     name: 'Second Template',
     assets: {'Abertura_PreRender.mp4': assets},
     fonts: {'font_1': 'path-of_font_file.ttf'}
@@ -1095,20 +1381,46 @@ params = {
 template = RestClient.post('https://api.chiligumvideos.com/api/template', params, headers)
 ```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+const params = {
+  template: {
+    name: 'Second Template',
+    assets: { 'Abertura_PreRender.mp4': assets },
+    fonts: { 'font_1': 'path-of_font_file.ttf' },
+    config_fields: arquivo_json,
+    aepx: new File('/User/Desktop/Downloads/template.aepx')
+  }
+}
+
+instance.post('/templates', params).then((result) => {
+  console.log(result.data)
+})
+```
+
 > O comando acima deve retornar uma estrutura JSON:
 
 ```json
-  {  
+  {
      "id":43,
      "name":"Second Template",
-     "assets":{  
+     "assets":{
         "Abertura_PreRender.mp4":""
      },
-     "config_fields":{  
+     "config_fields":{
         "name":"Template_Doencas",
         "duration":"20",
         "main_composition":"Template_Doencas",
-        "preview_frames":[  
+        "preview_frames":[
            "35",
            "101",
            "154",
@@ -1117,46 +1429,46 @@ template = RestClient.post('https://api.chiligumvideos.com/api/template', params
            "574"
         ],
         "main_frame":"35",
-        "variables":{  
-           "foto":{  
+        "variables":{
+           "foto":{
               "name":"Imagem",
               "type":"img",
               "output":"Foto.png",
               "width":"1600",
               "height":"900"
            },
-           "logo":{  
+           "logo":{
               "name":"Logo",
               "type":"img",
               "output":"Logo.png",
               "width":"1030",
               "height":"470"
            },
-           "texto_1":{  
+           "texto_1":{
               "name":"Texto de Abertura",
               "type":"text",
               "output":"Texto_1.png",
-              "font":{  
+              "font":{
                  "family":"MyriadPro-Regular",
                  "size":"60"
               },
               "color":"#50747B"
            },
-           "texto_2":{  
+           "texto_2":{
               "name":"Título",
               "type":"text",
               "output":"Texto_2.png",
-              "font":{  
+              "font":{
                  "family":"MyriadPro-Semibold",
                  "size":"120"
               },
               "color":"#FFFFFF"
            },
-           "texto_3":{  
+           "texto_3":{
               "name":"Descrição",
               "type":"text",
               "output":"Texto_3.png",
-              "font":{  
+              "font":{
                  "family":"MyriadPro-Semibold",
                  "size":"73"
               },
@@ -1166,11 +1478,11 @@ template = RestClient.post('https://api.chiligumvideos.com/api/template', params
               "height":"265",
               "align":"West"
            },
-           "texto_4":{  
+           "texto_4":{
               "name":"Texto de encerramento",
               "type":"text",
               "output":"Texto_4.png",
-              "font":{  
+              "font":{
                  "family":"MyriadPro-Bold",
                  "size":"130"
               },
@@ -1182,7 +1494,7 @@ template = RestClient.post('https://api.chiligumvideos.com/api/template', params
            }
         }
      },
-     "fonts":{  
+     "fonts":{
         "font_1":"Effra_Std_Rg.ttf"
      },
      "aepx_file_name":"template.aepx",
@@ -1213,7 +1525,7 @@ aepx            | Arquivo aepx criado no AfterEffects
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -1226,7 +1538,22 @@ template.body
 curl -X DELETE \
 "https://api.chiligumvideos.com/api/templates/<ID>" \
 -H "token: seutoken"
+```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.delete('/templates/<ID>').then((result) => {
+  console.log(result.data)
+})
 ```
 
 > O comando acima deve retornar uma estrutura JSON:
@@ -1257,7 +1584,7 @@ ID | ID do template a ser deletado
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -1271,18 +1598,41 @@ curl "https://api.chiligumvideos.com/api/videos"
   -H "token: seutoken"
 ```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/videos').then((result) => {
+  console.log(result.data)
+})
+```
+
 > O comando acima retorna um JSON:
 
+### Parametrôs de query
+
+Parâmetro | Default | Descrição
+--------- | ------- | -----------
+page | 1 | Página atual
+per_page | 20 | Número de itens por páginas (máximo de itens por páginas = 200)
+
 ```json
-[  
-   {  
+[
+   {
       "id":2,
       "name":"Video2",
       "url":"https://path_to_server/video_file_name.mp4"
       "thumbnail_url": "https://path_image/uploaded_image_from_thumbnail.png",
       "template_id":42,
       "track_id":18,
-      "data":{  
+      "data":{
          "logo":"",
          "texto_1":"Texto de Abertura",
          "texto_2":"Titulo",
@@ -1292,14 +1642,14 @@ curl "https://api.chiligumvideos.com/api/videos"
       "created_at":"2017-09-29T19:16:06.206Z",
       "updated_at":"2017-09-29T19:16:06.206Z"
    },
-   {  
+   {
       "id":1,
       "name":"Video1",
       "url":"https://path_to_server/video_file_name.mp4"
       "thumbnail_url": "https://path_image/uploaded_image_from_thumbnail.png",
       "template_id":42,
       "track_id":18,
-      "data":{  
+      "data":{
          "logo":"",
          "texto_1":"Texto de Abertura",
          "texto_2":"Titulo",
@@ -1314,11 +1664,13 @@ curl "https://api.chiligumvideos.com/api/videos"
 
 Este endpoint retorna todos os videos.
 
-
-### HTTP Request
+### HTTP Request - rota padrão
 
 `GET https://api.chiligumvideos.com/api/videos`
 
+### HTTP Request - utilizando paginação
+
+`GET https://api.chiligumvideos.com/api/videos?page=3&per_page=35`
 
 <aside class="notice">
 Não esqueça de informar o token no header
@@ -1329,7 +1681,7 @@ Não esqueça de informar o token no header
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -1343,17 +1695,33 @@ curl "https://api.chiligumvideos.com/api/videos/<ID>"
   -H "token: seutoken"
 ```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.get('/videos/<ID>').then((result) => {
+  console.log(result.data)
+})
+```
+
 > O comando acima deve retornar uma estrutura de JSON:
 
 ```json
-  {  
+  {
     "id":1,
     "name":"Video1",
     "url":"https://path_to_server/video_file_name.mp4"
     "thumbnail_url": "https://path_image/uploaded_image_from_thumbnail.png",
     "template_id":42,
     "track_id":18,
-    "data":{  
+    "data":{
        "logo":"",
        "texto_1":"Texto de Abertura",
        "texto_2":"Titulo",
@@ -1396,13 +1764,13 @@ curl "https://api.chiligumvideos.com/api/videos" \
 ```ruby
 require 'rest-client'
 
-headers = { 
+headers = {
   'token'        => 'seutoken'
   'Content-Type' => 'application/json'
 }
 
 params = {
-  video: { 
+  video: {
     name: 'Video1',
     track_id: 18,
     template_id: 42,
@@ -1412,21 +1780,51 @@ params = {
 }
 
 @video = RestClient.post('https://api.chiligumvideos.com/api/videos/api/videos', params, headers)
+```
 
+```javascript
+const axios = require('axios')
 
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+const params = {
+  video: {
+    name: 'Video1',
+    track_id: 18,
+    template_id: 42,
+    data: {
+      'texto_1': 'Texto de Abertura',
+      'texto_2': 'Título',
+      'texto_3': 'Descrição',
+      'texto_4': 'Texto de encerramento',
+      'logo': foto
+    },
+    postback_url: 'http://domain.com'
+  }
+}
+
+instance.post('/videos', params).then((result) => {
+  console.log(result.data)
+})
 ```
 
 > O comando acima deve retornar uma estrutura JSON:
 
 ```json
-  {  
+  {
     "id":1,
     "name":"Video1",
     "url":"https://path_to_server/video_file_name.mp4",
     "thumbnail_url": "https://path_image/uploaded_image_from_thumbnail.png",
     "template_id":42,
     "track_id":18,
-    "data":{  
+    "data":{
       "logo":"",
       "texto_1":"Texto de Abertura",
       "texto_2":"Titulo",
@@ -1451,8 +1849,8 @@ name | nome do video
 track_id    | id da trilha a ser transmitida junto ao vídeo
 template_id | template utilizado para criação do vídeo
 data        | dados de preenchimento dos campos disponíveis no template
-postback_url | Este campo é opcional caso precise receber uma notificação em seu endpoint 
-play_button | (Opcional) Gera a thumbnail do vídeo contendo um botão de play. Recebe true ou false apenas 
+postback_url | Este campo é opcional caso precise receber uma notificação em seu endpoint
+play_button | (Opcional) Gera a thumbnail do vídeo contendo um botão de play. Recebe true ou false apenas
 
 <aside class="notice">
   Os parâmetros retornados no postback body { id, url, thumbnail_url, preview_url }.
@@ -1464,7 +1862,7 @@ play_button | (Opcional) Gera a thumbnail do vídeo contendo um botão de play. 
 ```ruby
 require 'httparty'
 
-headers = { 
+headers = {
   'token' => 'seutoken',
   'Content-Type' => 'multipart/form-data'
 }
@@ -1477,7 +1875,22 @@ video.body
 curl -X DELETE \
 "https://api.chiligumvideos.com/api/videos/<ID>" \
 -H "token: seutoken"
+```
 
+```javascript
+const axios = require('axios')
+
+const instance = axios.create({
+  baseURL: 'https://api.chiligumvideos.com/api',
+  headers: {
+    'token': 'seutoken',
+    'Content-Type': 'multipart/form-data'
+  }
+})
+
+instance.delete('/videos/<ID>').then((result) => {
+  console.log(result.data)
+})
 ```
 
 > O comando acima deve retornar uma estrutura JSON:
@@ -1531,7 +1944,7 @@ thumbnail_url | https://www.link_image.com/image.jpg | https://www.link_image.co
  Este endpoint retorna todos os vídeos no player pertencentes ao usuário do token
 
 ```shell
-curl "https://player.chiligumvideos.com/api/videos" 
+curl "https://player.chiligumvideos.com/api/videos"
 -H "token: seutoken" \
 ```
 
@@ -1621,7 +2034,7 @@ video.body
 
 ```json
 
-{ 
+{
   "id":162,
   "name":"Samba Rock",
   "token":"dff4f6b549",
@@ -1641,7 +2054,7 @@ video.body
   "activated":true,
   "duration":"48.102000"
 }
- 
+
 ```
 
 ### HTTP Request
@@ -1723,7 +2136,7 @@ Parâmetro | Descrição
 --------- | -----------
 name    | nome do video
 data    | arquivo do video em .mp4
-postback_url | Este campo é opcional caso precise receber uma notificação em seu endpoint 
+postback_url | Este campo é opcional caso precise receber uma notificação em seu endpoint
 
 
 <aside class="notice">
@@ -1863,4 +2276,3 @@ Parâmetro | Descrição   | Exemplo  | Obrigatório
 --------- | ----------- | -------- |--------------
 start_date    | Data de inicio da criação dos analytics | '2018-06-13' | não
 final_date    | Data limite da criação dos analytics    | '2018-06-14' | não
-
